@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EjercicioBiblioteca
 
 {
-    internal class LibroNegocio
+    public class LibroNegocio
     {
         private LibroDatos _libroDatos;
 

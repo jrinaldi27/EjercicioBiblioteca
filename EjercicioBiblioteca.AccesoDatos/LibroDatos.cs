@@ -14,6 +14,7 @@ namespace EjercicioBiblioteca
     //clase de prueba para acdeder a los datos
     public class LibroDatos
     {
+    
             public List<Libro> TraerTodos()
             {
                 string json2 = WebHelper.Get("libro"); // trae un texto en formato json de una web
@@ -42,6 +43,8 @@ namespace EjercicioBiblioteca
             }
             
         }
+
+   
 }
 
 

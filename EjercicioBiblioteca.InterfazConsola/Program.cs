@@ -11,8 +11,9 @@ namespace EjercicioBiblioteca.InterfazConsola
         static void Main(string[] args)
         {
             Biblioteca biblioteca = new Biblioteca("biblio1", "calle nueva 123");
+            //private static LibroNegocio _libroNegocio;
 
-            bool continuarActivo = true;
+        bool continuarActivo = true;
 
             string menuPrincipal = "Presione una de las siguientes opciones\n1) Clientes \n2) Libros \n3) Prestamos " +
                 "\n4) Ingresar Cliente" +
@@ -20,7 +21,7 @@ namespace EjercicioBiblioteca.InterfazConsola
 
             string menuClientes = ("Presione una de las siguientes opciones\n1) Agregar cliente \n 2) Consultar cliente \n 3) Listar clientes\n x) Salir ");
 
-            string menuLibros = ("1) Agregar Libro \n 2) Consultar Libro \n 3) Listar libros \n " +
+            string menuLibros = ("Presione una de las siguientes opciones\n1) Agregar Libro \n 2) Consultar Libro \n 3) Listar libros \n " +
                 "4) Agregar ejemplar \n 5) Borrar ejemplar \n 6) Traer Ejemplares \n 7)Traer cantidad ejemplares ");
 
             string menuPrestamos = ("1) Prestar libro \n 2) Devolver libro \n  ");
@@ -74,9 +75,10 @@ namespace EjercicioBiblioteca.InterfazConsola
                         case "2":
                             Console.WriteLine(menuLibros);
                             string opcionLibro = Console.ReadLine();
-                            if (opcionLibro.ToUpper() == "1")
+                            if (opcionLibro.ToUpper() == "2")
                             {
-                                
+                                ListarLibros(biblioteca);
+
                             }
                             else
                             {
@@ -131,6 +133,15 @@ namespace EjercicioBiblioteca.InterfazConsola
             }
         }
 
+        public static void ListarLibros(Biblioteca biblioteca)
+        {
+
+            foreach (Libro l in biblioteca.Libros)
+            {
+
+                Console.WriteLine(l.ToString());
+            }
+        }
     }
 }
-}
+

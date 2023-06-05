@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace ConsoleApp_ejercicio_bibilioteca
+namespace EjercicioBiblioteca
 {
     public static class WebHelper
     {
-        static WebClient client;
-        static string rutaBase;
+         static WebClient client;
+         static string rutaBase;
 
-        static WebHelper()
+         static WebHelper()
         {
             client = new WebClient();
             client.Encoding = Encoding.UTF8;
