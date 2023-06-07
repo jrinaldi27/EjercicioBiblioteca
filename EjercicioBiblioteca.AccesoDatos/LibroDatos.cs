@@ -17,7 +17,7 @@ namespace EjercicioBiblioteca
     
             public List<Libro> TraerTodos()
             {
-                string json2 = WebHelper.Get("libro"); // trae un texto en formato json de una web
+                string json2 = WebHelper.Get("Libros"); // trae un texto en formato json de una web
                 List<Libro> resultado = MapList(json2);
                 return resultado;
             }

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +11,11 @@ namespace EjercicioBiblioteca.InterfazConsola
         static void Main(string[] args)
         {
             Biblioteca biblioteca = new Biblioteca("biblio1", "calle nueva 123");
-            //private static LibroNegocio _libroNegocio;
+            LibroNegocio libros = new LibroNegocio();
+
+            biblioteca.Libros = libros.GetListaLibro();
+
+            
 
         bool continuarActivo = true;
 
