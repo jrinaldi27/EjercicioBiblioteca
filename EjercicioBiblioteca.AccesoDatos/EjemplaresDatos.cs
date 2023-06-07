@@ -38,19 +38,19 @@ namespace EjercicioBiblioteca
              return lst;
             }
             
-             private static NameValueCollection ReverseMap( Ejemplar ejemplar)
+             private NameValueCollection ReverseMap( Ejemplar ejemplar)
         {
-            NameValueCollection ejemplarMap = new NameValueCollection
+            NameValueCollection n = new NameValueCollection();
             {
-              ejemplarMap.Add{ "idLibro", Convert.ToInt32(ejemplar.idLibro).ToString() },
-              ejemplarMap.Add{ "observaciones", ejemplar.observaciones)},
-              ejemplarMap.Add{ "Precio", ejemplar.Precio.ToString("F", CultureInfo.GetCultureInfo("es-AR"))}//Chequear,
-              ejemplarMap.Add{ "fechaAlta", producto.fechaAlta.ToString("yyyy-MM-dd") },
-              ejemplarMap.Add{"id", Convert.ToInt32(ejemplar,id).ToString()}
-              ejemplarMap.Add{  } //Falta parametros
+              n.Add{ "idLibro", Convert.ToInt32(ejemplar.idLibro).ToString() },
+              n.Add{ "observaciones", ejemplar.observaciones)},
+              n.Add{ "Precio", ejemplar.Precio.ToString("F", CultureInfo.GetCultureInfo("es-AR"))}//Chequear,
+              n.Add{ "fechaAlta", producto.fechaAlta.ToString("yyyy-MM-dd") },
+              n.Add{"id", Convert.ToInt32(ejemplar,id).ToString()}
+              n.Add{  } //Falta parametros
             };
 
-            return ejemplarMap;
+            return n;
             
         }
              public TransactionResult InsertarEjemplar(Ejemplar ejemplar)
