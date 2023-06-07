@@ -49,5 +49,15 @@ namespace EjercicioBiblioteca
             
         }
         
+      private NameValueCollection ReverseMap(Cliente cliente)
+      {
+         NameValueCollection n = new NameValueCollection();
+         n.Add("Nombre",cliente.nombre);
+         n.Add("Apellido",cliente.apellido);
+         n.Add("Direccion",cliente.direccion);
+         n.Add("IdCliente", cliente.idCliente.ToString());
+         n.Add("email"), cliente.email);
+         n.Add("Usuario","") //falta
+            return n;
       
    }
