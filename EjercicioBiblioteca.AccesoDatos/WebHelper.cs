@@ -20,6 +20,7 @@ namespace EjercicioBiblioteca
 
             client.Headers.Add("contentType", "application/json");
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            
         } 
 
         public static string Get(string url)
