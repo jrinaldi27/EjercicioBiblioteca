@@ -43,7 +43,7 @@ namespace EjercicioBiblioteca
             }
             catch (Exception ex)
             {
-                return "{}"; //falta return
+                return "{\"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\"}";
             }
              
             public static string Put(string url, NameValueCollection parametros)
@@ -57,7 +57,7 @@ namespace EjercicioBiblioteca
             }
             catch (Exception ex)
             {
-                return "{}";
+                return "{\"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\"}";
             }
     }
 }
