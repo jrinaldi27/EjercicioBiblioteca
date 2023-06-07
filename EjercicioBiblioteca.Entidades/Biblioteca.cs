@@ -121,9 +121,13 @@ namespace EjercicioBiblioteca
             }
             return a;
         }
-         public List<Libro> ListarLibros()
+         public void ListarLibros()
         {
-            return this.Libros;
+            foreach (Libro l in Libros)
+            {
+
+                Console.WriteLine(l.ToString());
+            }
         }
         
        

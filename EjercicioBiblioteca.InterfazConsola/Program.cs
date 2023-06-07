@@ -81,7 +81,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                             string opcionLibro = Console.ReadLine();
                             if (opcionLibro.ToUpper() == "2")
                             {
-                                ListarLibros(biblioteca);
+                                biblioteca.ListarLibros();
 
                             }
                             else
@@ -137,15 +137,7 @@ namespace EjercicioBiblioteca.InterfazConsola
             }
         }
 
-        public static void ListarLibros(Biblioteca biblioteca)
-        {
-
-            foreach (Libro l in biblioteca.Libros)
-            {
-
-                Console.WriteLine(l.ToString());
-            }
-        }
+        
     }
 }
 
