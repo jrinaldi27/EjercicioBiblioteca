@@ -39,13 +39,13 @@ namespace EjercicioBiblioteca
                 return lst;
             }
             
-             public ResultadoTransaccion InsertarCliente(Cliente cliente)
+             public resultado InsertarCliente(Cliente cliente)
         {
             NameValueCollection clienteDatos = ReverseMap(cliente);
             string json = WebHelper.Post(ConfigurationManager.AppSettings["PATH_CLIENTE"], clienteDatos);
 
-            ResultadoTransaccion resultadoTransaccion = JsonConvert.DeserializeObject<ResultadoTransaccion>(json);
-            return resultadoTransaccion;
+            resultado resultado = JsonConvert.DeserializeObject<ResultadoTransaccion>(json);
+            return resultado;
             
         }
         
