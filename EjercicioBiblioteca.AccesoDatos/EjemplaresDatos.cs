@@ -44,13 +44,22 @@ namespace EjercicioBiblioteca
             {
               ejemplarMap.Add{ "idLibro", Convert.ToInt32(ejemplar.idLibro).ToString() },
               ejemplarMap.Add{ "observaciones", ejemplar.observaciones)},
-              ejemplarMap.Add{ "Precio", ejemplar.Precio.ToString("F", CultureInfo.GetCultureInfo("es-AR"))},
+              ejemplarMap.Add{ "Precio", ejemplar.Precio.ToString("F", CultureInfo.GetCultureInfo("es-AR"))}//Chequear,
               ejemplarMap.Add{ "fechaAlta", producto.fechaAlta.ToString("yyyy-MM-dd") },
               ejemplarMap.Add{"id", Convert.ToInt32(ejemplar,id).ToString()}
-              ejemplarMap.Add{  }
+              ejemplarMap.Add{  } //Falta parametros
             };
 
             return ejemplarMap;
+            
+        }
+             public TransactionResult InsertarEjemplar(Ejemplar ejemplar)
+        {
+            NameValueCollection ejemplarDatos = ReverseMap(ejemplar);
+            string json = WebHelper.Post("Ejemplar", ejemplarDatos);
+
+            TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
+            return resultado;
             
         }
 }
