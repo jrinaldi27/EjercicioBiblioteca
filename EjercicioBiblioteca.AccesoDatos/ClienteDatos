@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Newtonsoft.Json;
+using System.Collections.Specialized;
+
+
+namespace EjercicioBiblioteca
+{
+   public class ClienteDatos
+        {
+            public List<Cliente> TraerTodos()
+            {
+                string json2 = Webhelper.Get("Clientes");
+                List<Cliente> resultado = Maplist(json2);
+                return resultado;
+            }
+            public List<Cliente> Traer(int id)
+            {
+                string json2 = Webhelper.Get("Cliente/" + id.ToString());
+                List<Cliente> resultado = Maplist(json2);
+                return resultado;
+            }
+
+           
+
+            private List<Cliente> Maplist (string json)
+            {
+                List<Cliente> lst = JsonConvert.DeserializeObject < List<Cliente<>>(Json);
+                return lst;
+            }
+
+            private Cliente MapObj(string json)
+            {
+                Cliente lst = JsonConvert.DeserializeObject<Cliente>(json)
+                return lst;
+            }
+            
+             public ResultadoTransaccion InsertarCliente(Cliente cliente)
+        {
+            NameValueCollection clienteDatos = ReverseMap(cliente);
+            string json = WebHelper.Post(ConfigurationManager.AppSettings["PATH_CLIENTE"], clienteDatos);
+
+            ResultadoTransaccion resultadoTransaccion = JsonConvert.DeserializeObject<ResultadoTransaccion>(json);
+            return resultadoTransaccion;
+            
+        }
+        
+      
+   }
