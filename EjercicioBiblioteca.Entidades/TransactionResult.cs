@@ -1,4 +1,4 @@
-namespace EjercicioBiblioteca.Entidades
+namespace EjercicioBiblioteca
 {
     public class TransactionResult
     {
