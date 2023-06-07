@@ -31,5 +31,33 @@ namespace EjercicioBiblioteca
 
             return responseString;
         }
+        
+        public static string post(string url, NameValueCollection parametros)
+        {
+            string uri = rutaBase + url;
+            try
+            {
+               var response = client.UploadValues(uri,"POST", parametros);
+                var responseString= Encoding.Default.GetString(response);
+                return responseString;
+            }
+            catch (Exception ex)
+            {
+                return "{}"; //falta return
+            }
+             
+            public static string Put(string url, NameValueCollection parametros)
+            { 
+                string uri = rutaBase + url;
+            try
+            {
+               var response = client.UploadValues(uri,"PUT", parametros);
+                var responseString= Encoding.Default.GetString(response);
+                return responseString;
+            }
+            catch (Exception ex)
+            {
+                return "{}";
+            }
     }
 }
