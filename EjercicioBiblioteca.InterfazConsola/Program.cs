@@ -79,7 +79,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                         case "2":
                             Console.WriteLine(menuLibros);
                             string opcionLibro = Console.ReadLine();
-                            if (opcionLibro.ToUpper() == "2")
+                            if (opcionLibro.ToUpper() == "3")
                             {
                                 biblioteca.ListarLibros();
 
