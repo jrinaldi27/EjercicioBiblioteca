@@ -14,13 +14,13 @@ namespace EjercicioBiblioteca
         {
             public List<Cliente> TraerTodos()
             {
-                string json2 = Webhelper.Get("Clientes");
+                string json2 = WebHelper.Get("Clientes");
                 List<Cliente> resultado = Maplist(json2);
                 return resultado;
             }
             public List<Cliente> Traer(int id)
             {
-                string json2 = Webhelper.Get("Cliente/" + id.ToString());
+                string json2 = WebHelper.Get("Cliente/" + id.ToString());
                 List<Cliente> resultado = Maplist(json2);
                 return resultado;
             }
@@ -29,7 +29,7 @@ namespace EjercicioBiblioteca
 
             private List<Cliente> Maplist (string json)
             {
-                List<Cliente> lst = JsonConvert.DeserializeObject < List<Cliente<>>(Json);
+                List<Cliente> lst = JsonConvert.DeserializeObject <List<Cliente<>>(Json);
                 return lst;
             }
 
@@ -60,4 +60,4 @@ namespace EjercicioBiblioteca
          n.Add("Usuario","") //falta
             return n;
       
-   }
+        }

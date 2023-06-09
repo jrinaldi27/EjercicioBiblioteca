@@ -14,13 +14,13 @@ namespace EjercicioBiblioteca
         {
             public List<Ejemplar> TraerTodos()
             {
-                string json2 = Webhelper.Get("Ejemplares");
+                string json2 = WebHelper.Get("Ejemplares");
                 List<Ejemplar> resultado = Maplist(json2);
                 return resultado;
             }
             public List<Ejemplar> Traer(int id)
             {
-                string json2 = Webhelper.Get("Cliente/" + id.ToString());
+                string json2 = WebHelper.Get("Cliente/" + id.ToString());
                 List<Ejemplar> resultado = Maplist(json2);
                 return resultado;
             }
@@ -28,13 +28,13 @@ namespace EjercicioBiblioteca
          
             private List<Ejemplar> Maplist (string json)
             {
-                List<Cliente> lst = JsonConvert.DeserializeObject < List<Cliente<>>(json);
+                List<Ejemplar> lst = JsonConvert.DeserializeObject <List<Ejemplar>>(json);
                 return lst;
             }
 
             private Ejemplar MapObj(string json)
             {
-                Ejemplar lst = JsonConvert.DeserializeObject<Cliente>(json)
+            Ejemplar lst = JsonConvert.DeserializeObject<Ejemplar>(json);
              return lst;
             }
             
@@ -42,11 +42,11 @@ namespace EjercicioBiblioteca
         {
             NameValueCollection n = new NameValueCollection();
             {
-              n.Add{ "idLibro", Convert.ToInt32(ejemplar.idLibro).ToString() },
-              n.Add{ "observaciones", ejemplar.observaciones)},
-              n.Add{ "Precio", ejemplar.Precio.ToString("F", CultureInfo.GetCultureInfo("es-AR"))}//Chequear,
-              n.Add{ "fechaAlta", producto.fechaAlta.ToString("yyyy-MM-dd") },
-              n.Add{"id", Convert.ToInt32(ejemplar,id).ToString()}
+              n.Add{ "idLibro", Convert.ToInt32(ejemplar.IdLibro).ToString() };
+              n.Add{ "observaciones", ejemplar.Observaciones)};
+              n.Add{ "Precio", ejemplar.Precio.ToString("F", CultureInfo.GetCultureInfo("es-AR"))};//Chequear,
+              n.Add{ "fechaAlta", producto.fechaAlta.ToString("yyyy-MM-dd") };
+              n.Add{"id", Convert.ToInt32(ejemplar,id).ToString()};
               n.Add{  } //Falta parametros
             };
 

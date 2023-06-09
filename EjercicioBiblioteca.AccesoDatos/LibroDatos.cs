@@ -55,13 +55,13 @@ namespace EjercicioBiblioteca
       private NameValueCollection ReverseMap(Libro libro)
       {
          NameValueCollection n = new NameValueCollection();
-         n.Add("Edicion",libro.edicion);
-         n.Add("Paginas",libro.paginas.ToString());
-         n.Add("Titulo",libro.titulo);
-         n.Add("Autor", libro.autor);
-         n.Add("Editorial", libro.editorial);
-         n.Add("Tema",libro.tema)
-         n.Add("Id", libro.id.Tostring())     
+         n.Add("Edicion",libro.Edicion.ToString());
+         n.Add("Paginas",libro.Paginas.ToString());
+         n.Add("Titulo",libro.Titulo);
+         n.Add("Autor", libro.Autor);
+         n.Add("Editorial", libro.Editorial);
+         n.Add("Tema", libro.Tema);
+         n.Add("Id", libro.IdLibro.ToString());     
          n.Add("Usuario","") //falta
          return n;  
         

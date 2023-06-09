@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Collections.Specialized;
+
+
 
 namespace EjercicioBiblioteca
 {
@@ -31,33 +34,39 @@ namespace EjercicioBiblioteca
 
             return responseString;
         }
-        
-        public static string post(string url, NameValueCollection parametros)
+
+        public static string Post(string url, NameValueCollection parametros)
         {
             string uri = rutaBase + url;
             try
             {
-               var response = client.UploadValues(uri,"POST", parametros);
-                var responseString= Encoding.Default.GetString(response);
+                var response = client.UploadValues(uri, "POST", parametros);
+                var responseString = Encoding.Default.GetString(response);
                 return responseString;
             }
             catch (Exception ex)
             {
                 return "{\"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\"}";
             }
-             
-            public static string Put(string url, NameValueCollection parametros)
-            { 
-                string uri = rutaBase + url;
+
+
+        }
+
+
+        public static string Put(string url, NameValueCollection parametros)
+        {
+            string uri = rutaBase + url;
             try
             {
-               var response = client.UploadValues(uri,"PUT", parametros);
-                var responseString= Encoding.Default.GetString(response);
+                var response = client.UploadValues(uri, "PUT", parametros);
+                var responseString = Encoding.Default.GetString(response);
                 return responseString;
             }
             catch (Exception ex)
             {
                 return "{\"isOk\":false,\"id\":-1,\"error\":\"Error en el llamado al servicio\"}";
             }
+
+        }
     }
 }
