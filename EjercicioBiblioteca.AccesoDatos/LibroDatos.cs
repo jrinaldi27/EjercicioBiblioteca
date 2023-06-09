@@ -42,6 +42,30 @@ namespace EjercicioBiblioteca
                 return lst;
             }
             
+          public TransactionResult InsertarLibro(Libro libro)
+        {
+            NameValueCollection libroDatos = ReverseMap(libro);
+            string json = WebHelper.Post("Libro", libroDatos);
+
+            TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
+            return resultado;
+            
+        }
+        
+      private NameValueCollection ReverseMap(Libro libro)
+      {
+         NameValueCollection n = new NameValueCollection();
+         n.Add("Edicion",libro.edicion);
+         n.Add("Paginas",libro.paginas.ToString());
+         n.Add("Titulo",libro.titulo);
+         n.Add("Autor", libro.autor);
+         n.Add("Editorial", libro.editorial);
+         n.Add("Tema",libro.tema)
+         n.Add("Id", libro.id.Tostring())     
+         n.Add("Usuario","") //falta
+         return n;  
+        
+        
         }
 
    
