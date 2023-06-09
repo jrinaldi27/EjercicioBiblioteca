@@ -23,8 +23,8 @@ namespace EjercicioBiblioteca
 
             return list;
         } 
-             public void Alta(string nombre, string apellido, string direccion, int idCliente, string email)
-             {
+        public void Alta(string nombre, string apellido, string direccion, int idCliente, string email)
+        {
                  Cliente cliente = new cliente();
                  cliente.Nombre=nombre;
                  cliente.Apellido=apellido;
@@ -36,7 +36,7 @@ namespace EjercicioBiblioteca
                  
                  if(!transaction.IsOk)
                      throw new Exception(transaccion.Error);
-             }
+        }
 
     } 
 }
