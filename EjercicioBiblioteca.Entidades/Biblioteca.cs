@@ -144,7 +144,7 @@ namespace EjercicioBiblioteca
                         if (ejemplar.Id == idEjemplar)
                         {
                             // Verificar si el ejemplar ya está prestado
-                            if (ejemplar.Prestado)
+                            //if (ejemplar.Prestado)
                             {
                                 Console.WriteLine("El ejemplar ya está prestado.");
                                 return;
@@ -181,7 +181,7 @@ namespace EjercicioBiblioteca
                           
 
                             // Actualizar estado del ejemplar
-                            ejemplar.Prestado = true;
+                            //ejemplar.Prestado = true;
                             ejemplar.FechaAlta = prestamo.FechaPrestamo;
 
                             // Agregar el préstamo a la lista de préstamos de la biblioteca
@@ -210,7 +210,7 @@ namespace EjercicioBiblioteca
             if (ejemplar.Id == idEjemplar)
             {
                 // Verificar si el ejemplar está prestado
-                if (!ejemplar.Prestado)
+               // if (!ejemplar.Prestado)
                 {
                     Console.WriteLine("El ejemplar no está prestado.");
                     return;
@@ -234,7 +234,7 @@ namespace EjercicioBiblioteca
                 }
 
                 // Actualizar estado del ejemplar
-                ejemplar.Prestado = false;
+               // ejemplar.Prestado = false;
                 ejemplar.FechaAlta = DateTime.MinValue;
 
                 // Calcular y registrar la fecha de devolución

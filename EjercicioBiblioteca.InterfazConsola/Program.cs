@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using EjercicioBiblioteca.CapaNegocio;
 
 namespace EjercicioBiblioteca.InterfazConsola
 {
@@ -12,7 +13,9 @@ namespace EjercicioBiblioteca.InterfazConsola
         {
             Biblioteca biblioteca = new Biblioteca("biblio1", "calle nueva 123");
             LibroNegocio libros = new LibroNegocio();
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
 
+            //
             biblioteca.Libros = libros.GetListaLibro();
 
             
@@ -64,7 +67,8 @@ namespace EjercicioBiblioteca.InterfazConsola
                             string opcionCliente = Console.ReadLine();
                             if (opcionCliente.ToUpper() == "1")
                             {
-                                AgregarCliente(biblioteca);
+                                //AgregarCliente(biblioteca);
+                                clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
                             }
                             if (opcionCliente.ToUpper() == "2")
                             {
@@ -119,11 +123,11 @@ namespace EjercicioBiblioteca.InterfazConsola
 
         public static void AgregarCliente(Biblioteca biblioteca)
         {
-            Cliente c1 = new Cliente(Utilidades.InsertarInt("Ingrese id de cliente"),
-                Utilidades.InsertarString("Ingrese email"), Utilidades.InsertarString("Ingrese nombre"),
-                Utilidades.InsertarString("Ingrese apellido"), Utilidades.InsertarString("Ingrese direccion"));
+           // Cliente c1 = new Cliente(Utilidades.InsertarInt("Ingrese id de cliente"),
+               // Utilidades.InsertarString("Ingrese email"), Utilidades.InsertarString("Ingrese nombre"),
+              //  Utilidades.InsertarString("Ingrese apellido"), Utilidades.InsertarString("Ingrese direccion"));
 
-            biblioteca.IngresarCliente(c1);
+           // biblioteca.IngresarCliente(c1);
             Console.WriteLine("cliente agregado");
         }
 

@@ -42,7 +42,7 @@ namespace EjercicioBiblioteca
         public TransactionResult InsertarCliente(Cliente cliente)
         {
             NameValueCollection clienteDatos = ReverseMap(cliente);
-            string json = WebHelper.Post("Cliente", clienteDatos);
+            string json = WebHelper.Post("cliente", clienteDatos);
 
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;
@@ -63,6 +63,7 @@ namespace EjercicioBiblioteca
             n.Add("Activo", cliente.Activo.ToString());
             n.Add("Usuario", cliente.Usuario);
             n.Add("Host", cliente.Host);
+
             n.Add("IdCliente", cliente.IdCliente.ToString());
             
             

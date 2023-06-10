@@ -75,6 +75,7 @@ namespace EjercicioBiblioteca
         public Cliente(int dni, string nombre, string apellido, string direccion, string email,  string telefono
            ,DateTime fechaNacimiento, DateTime fechaAlta, bool activo, string usuario,int idCliente) :base(nombre,apellido,direccion,fechaNacimiento)
         {
+            Dni = dni;
             IdCliente = idCliente;
             Email = email;
             Telefono = telefono;

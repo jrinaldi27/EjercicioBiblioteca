@@ -41,9 +41,9 @@ namespace EjercicioBiblioteca
 
         public Persona (string nombre, string apellido, string direccion, DateTime fechaNacimiento)
         {
-            nombre = Nombre;
-            apellido = Apellido;
-            direccion = Direccion;
+            Nombre = nombre;
+            Apellido = apellido;
+            Direccion = direccion;
             FechaNacimiento = fechaNacimiento;
         }
     }
