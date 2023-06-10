@@ -59,7 +59,11 @@ namespace EjercicioBiblioteca
             Precio = precio;
         }
 
-        
+        public override string ToString()
+        {
+            return (this.IdLibro + ") " + this.Observaciones + ", " + this.FechaAlta + ", " + this.Precio);
+        }
+
 
     }
 }

@@ -20,5 +20,13 @@ namespace EjercicioBiblioteca.CapaNegocio
             if (!transaction.IsOk)
                 throw new Exception(transaction.Error);
         }
+
+
+        public List<Cliente> GetListaCliente()
+        {
+            List<Cliente> list = clienteDatos.TraerTodos();
+
+            return list;
+        }
     }
 }

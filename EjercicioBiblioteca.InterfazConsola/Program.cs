@@ -14,10 +14,12 @@ namespace EjercicioBiblioteca.InterfazConsola
             Biblioteca biblioteca = new Biblioteca("biblio1", "calle nueva 123");
             LibroNegocio libros = new LibroNegocio();
             ClienteNegocio clienteNegocio = new ClienteNegocio();
+            EjemplaresNegocio ejemplaresNegocio = new EjemplaresNegocio();
 
             //
             biblioteca.Libros = libros.GetListaLibro();
-
+            biblioteca.Clientes = clienteNegocio.GetListaCliente();
+            
             
 
         bool continuarActivo = true;
@@ -29,7 +31,7 @@ namespace EjercicioBiblioteca.InterfazConsola
             string menuClientes = ("Presione una de las siguientes opciones\n1) Agregar cliente \n 2) Consultar cliente \n 3) Listar clientes\n x) Salir ");
 
             string menuLibros = ("Presione una de las siguientes opciones\n1) Agregar Libro \n 2) Consultar Libro \n 3) Listar libros \n " +
-                "4) Agregar ejemplar \n 5) Borrar ejemplar \n 6) Traer Ejemplares \n 7)Traer cantidad ejemplares ");
+                "4) Agregar ejemplar \n 5) Borrar ejemplar \n 6) Traer Ejemplar por id \n 7)Traer cantidad ejemplares ");
 
             string menuPrestamos = ("1) Prestar libro \n 2) Devolver libro \n  ");
 
@@ -68,9 +70,9 @@ namespace EjercicioBiblioteca.InterfazConsola
                             if (opcionCliente.ToUpper() == "1")
                             {
                                 //AgregarCliente(biblioteca);
-                                clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
+                                //clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
                             }
-                            if (opcionCliente.ToUpper() == "2")
+                            if (opcionCliente.ToUpper() == "3")
                             {
                                 ListarClientes(biblioteca);
                             }
@@ -88,6 +90,18 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 biblioteca.ListarLibros();
 
                             }
+
+                            if (opcionLibro.ToUpper() == "6")
+                            {
+                                string idLibro = Utilidades.InsertarString("Ingrese el ID del libro a buscar");
+
+                                List<Ejemplar> lista = ejemplaresNegocio.GetEjemplares(idLibro);
+                                foreach (Ejemplar e in lista)
+                                {
+                                    Console.WriteLine(e.ToString());
+                                }
+                            }
+
                             else
                             {
                                 break;
