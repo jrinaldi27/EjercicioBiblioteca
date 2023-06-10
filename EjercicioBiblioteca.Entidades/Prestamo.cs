@@ -78,5 +78,11 @@ namespace EjercicioBiblioteca
             Id = id;
 
         }
+
+        public override string ToString()
+        {
+            return (this.IdCliente + ") " + this.IdEjemplar + ", " + this.Plazo + ", " + this.Abierto + ", " + this.FechaPrestamo + ", " +
+                this.FechaDevolucionTentativa + ", " + this.FechaDevolucionReal + ", " + this.Id);
+        }
     }
 }

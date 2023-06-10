@@ -15,10 +15,12 @@ namespace EjercicioBiblioteca.InterfazConsola
             LibroNegocio libros = new LibroNegocio();
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             EjemplaresNegocio ejemplaresNegocio = new EjemplaresNegocio();
+            PrestamoNegocio prestamoNegocio = new PrestamoNegocio();
 
             //
             biblioteca.Libros = libros.GetListaLibro();
             biblioteca.Clientes = clienteNegocio.GetListaCliente();
+            biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
             
             
 
@@ -33,7 +35,7 @@ namespace EjercicioBiblioteca.InterfazConsola
             string menuLibros = ("Presione una de las siguientes opciones\n1) Agregar Libro \n 2) Consultar Libro \n 3) Listar libros \n " +
                 "4) Agregar ejemplar \n 5) Borrar ejemplar \n 6) Traer Ejemplar por id \n 7)Traer cantidad ejemplares ");
 
-            string menuPrestamos = ("1) Prestar libro \n 2) Devolver libro \n  ");
+            string menuPrestamos = ("1) Prestar libro \n 2) Listar Prestamos \n  ");
 
             // pantalla de bienvenida
             Console.WriteLine("Bienvenido a Biblioteca");
@@ -109,6 +111,17 @@ namespace EjercicioBiblioteca.InterfazConsola
                             break;
                         case "3":
                             Console.WriteLine(menuPrestamos);
+                            string opcionPrestamo = Console.ReadLine();
+                            
+                            if (opcionPrestamo.ToUpper() == "2")
+                            {
+                               foreach (Prestamo p in biblioteca.Prestamos)
+                                {
+                                    Console.WriteLine(p.ToString());
+                                }
+                            }
+
+
                             break;
 
 
