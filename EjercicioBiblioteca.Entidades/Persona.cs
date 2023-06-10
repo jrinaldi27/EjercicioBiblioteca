@@ -11,6 +11,7 @@ namespace EjercicioBiblioteca
         private string _nombre;
         private string _apellido;
         private string _direccion;
+        private DateTime _fechaNacimiento;
 
         public string Nombre
         {
@@ -30,11 +31,20 @@ namespace EjercicioBiblioteca
             set { _direccion = value; }
         }
 
-        public Persona (string nombre, string apellido, string direccion)
+        public DateTime FechaNacimiento
+        {
+            get { return _fechaNacimiento; }
+            set { _fechaNacimiento = value; }
+        }
+
+
+
+        public Persona (string nombre, string apellido, string direccion, DateTime fechaNacimiento)
         {
             nombre = Nombre;
             apellido = Apellido;
             direccion = Direccion;
+            FechaNacimiento = fechaNacimiento;
         }
     }
 }

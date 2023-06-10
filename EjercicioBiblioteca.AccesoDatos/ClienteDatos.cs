@@ -52,12 +52,20 @@ namespace EjercicioBiblioteca
         private NameValueCollection ReverseMap(Cliente cliente)
         {
             NameValueCollection n = new NameValueCollection();
+            n.Add("Dni", cliente.Dni.ToString());
             n.Add("Nombre", cliente.Nombre);
             n.Add("Apellido", cliente.Apellido);
             n.Add("Direccion", cliente.Direccion);
-            n.Add("IdCliente", cliente.IdCliente.ToString());
             n.Add("email", cliente.Email);
-            n.Add("Usuario", ""); //falta
+            n.Add("Telefono", cliente.Telefono);
+            n.Add("Fecha nacimiento", cliente.FechaNacimiento.ToString("yyyy-MM-dd"));
+            n.Add("Fecha Alta", cliente.FechaAlta.ToString("yyyy-MM-dd"));
+            n.Add("Activo", cliente.Activo.ToString());
+            n.Add("Usuario", cliente.Usuario);
+            n.Add("Host", cliente.Host);
+            n.Add("IdCliente", cliente.IdCliente.ToString());
+            
+            
             return n;
 
         }

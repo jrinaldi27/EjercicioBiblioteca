@@ -23,10 +23,10 @@ namespace EjercicioBiblioteca
 
             return list;
         } 
-        public void Alta(string nombre, string apellido, string direccion, int idCliente, string email)
+        public void Alta(int id, string apellido, string direccion, int idCliente, string email)
         {
-                 Cliente cliente = new cliente();
-                 cliente.Nombre=nombre;
+                 Libro libro = new Libro();
+                 libro.Nombre=nombre;
                  cliente.Apellido=apellido;
                  cliente.Direccion=direccion;
                  cliente.IdCliente=idCliente;
