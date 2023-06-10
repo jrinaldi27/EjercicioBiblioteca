@@ -23,7 +23,7 @@ namespace EjercicioBiblioteca.InterfazConsola
         bool continuarActivo = true;
 
             string menuPrincipal = "Presione una de las siguientes opciones\n1) Clientes \n2) Libros \n3) Prestamos " +
-                "\n4) Ingresar Cliente" +
+                
                 " \nX) Salir";
 
             string menuClientes = ("Presione una de las siguientes opciones\n1) Agregar cliente \n 2) Consultar cliente \n 3) Listar clientes\n x) Salir ");
