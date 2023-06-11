@@ -12,15 +12,16 @@ namespace EjercicioBiblioteca.InterfazConsola
         static void Main(string[] args)
         {
             Biblioteca biblioteca = new Biblioteca("biblio1", "calle nueva 123");
+            
             LibroNegocio libros = new LibroNegocio();
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             EjemplaresNegocio ejemplaresNegocio = new EjemplaresNegocio();
             PrestamoNegocio prestamoNegocio = new PrestamoNegocio();
 
             //
-            biblioteca.Libros = libros.GetListaLibro();
-            biblioteca.Clientes = clienteNegocio.GetListaCliente();
-            biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
+            //biblioteca.Libros = libros.GetListaLibro();
+            //biblioteca.Clientes = clienteNegocio.GetListaCliente();
+            //biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
             
             
 
@@ -89,7 +90,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                             string opcionLibro = Console.ReadLine();
                             if (opcionLibro.ToUpper() == "3")
                             {
-                                biblioteca.ListarLibros();
+                                libros.GetListaLibro();
 
                             }
 
