@@ -118,6 +118,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                                foreach (Prestamo p in biblioteca.Prestamos)
                                 {
                                     Console.WriteLine(p.ToString());
+
                                 }
                             }
 
