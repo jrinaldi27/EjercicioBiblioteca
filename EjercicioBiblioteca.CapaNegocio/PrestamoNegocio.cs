@@ -17,5 +17,18 @@ namespace EjercicioBiblioteca.CapaNegocio
 
             return list;
         }
+
+        public void Alta(int idCliente, int idEjemplar, int plazo, DateTime fechaPrestamo, DateTime fechaDevolucionTentativa,
+            DateTime fechaDevolucionReal, int id)
+        {
+            Prestamo prestamo = new Prestamo(idCliente, idEjemplar, plazo, fechaPrestamo, fechaDevolucionTentativa, fechaDevolucionReal, id);
+
+            TransactionResult transaction = prestamoDatos.InsertarPrestamo(prestamo);
+
+            if (!transaction.IsOk)
+                throw new Exception(transaction.Error);
+        }
+
+
     }
 }

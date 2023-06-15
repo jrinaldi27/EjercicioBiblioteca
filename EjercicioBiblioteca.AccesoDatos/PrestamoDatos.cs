@@ -49,10 +49,10 @@ namespace EjercicioBiblioteca.AccesoDatos
             return n;
 
         }
-        public TransactionResult InsertarEjemplar(Prestamo prestamo)
+        public TransactionResult InsertarPrestamo(Prestamo prestamo)
         {
             NameValueCollection prestamoDatos = ReverseMap(prestamo);
-            string json = WebHelper.Post("Prestamo", prestamoDatos);
+            string json = WebHelper.Post("Biblioteca/Prestamos", prestamoDatos);
 
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;

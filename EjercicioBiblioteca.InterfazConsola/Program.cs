@@ -131,6 +131,11 @@ namespace EjercicioBiblioteca.InterfazConsola
                         case "3":
                             Console.WriteLine(menuPrestamos);
                             string opcionPrestamo = Console.ReadLine();
+
+                            if(opcionPrestamo.ToUpper() == "1")
+                            {
+                                prestamoNegocio.Alta(904251, 6, 15, Convert.ToDateTime("15/06/23"), Convert.ToDateTime("22/06/23"), Convert.ToDateTime("22/06/23"), 2);
+                            }
                             
                             if (opcionPrestamo.ToUpper() == "2")
                             {
