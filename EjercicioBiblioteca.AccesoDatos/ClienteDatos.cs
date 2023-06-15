@@ -14,13 +14,13 @@ namespace EjercicioBiblioteca
     {
         public List<Cliente> TraerTodos()
         {
-            string json2 = WebHelper.Get("Cliente/");
+            string json2 = WebHelper.Get("cliente/");
             List<Cliente> resultado = Maplist(json2);
             return resultado;
         }
-        public List<Cliente> Traer(int id)
+        public List<Cliente> Traer(string id)
         {
-            string json2 = WebHelper.Get("Cliente/" + id.ToString());
+            string json2 = WebHelper.Get("cliente/" + id.ToString());
             List<Cliente> resultado = Maplist(json2);
             return resultado;
         }

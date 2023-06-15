@@ -28,5 +28,14 @@ namespace EjercicioBiblioteca.CapaNegocio
 
             return list;
         }
+
+        public List<Cliente> GetClientesPorUsuario(string usuario)
+        {
+            List<Cliente> lista = clienteDatos.Traer(usuario);
+
+
+
+            return lista;
+        }
     }
 }

@@ -19,9 +19,9 @@ namespace EjercicioBiblioteca.InterfazConsola
             PrestamoNegocio prestamoNegocio = new PrestamoNegocio();
 
             //
-            //biblioteca.Libros = libros.GetListaLibro();
-            //biblioteca.Clientes = clienteNegocio.GetListaCliente();
-            //biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
+            biblioteca.Libros = libros.GetListaLibro();
+            biblioteca.Clientes = clienteNegocio.GetListaCliente();
+            biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
             
             
 
@@ -75,6 +75,21 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 //AgregarCliente(biblioteca);
                                 //clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
                             }
+
+                            if (opcionCliente.ToUpper() == "2")
+                            {
+                                string usuario = Utilidades.InsertarString("Ingrese el numero de usuario a buscar");
+                                usuario = Console.ReadLine();
+                                List<Cliente> lista = clienteNegocio.GetClientesPorUsuario(usuario);
+
+                                foreach(Cliente c in lista)
+                                {
+                                    Console.WriteLine(c.ToString());
+                                }
+
+
+                            }
+
                             if (opcionCliente.ToUpper() == "3")
                             {
                                 ListarClientes(biblioteca);
@@ -90,7 +105,10 @@ namespace EjercicioBiblioteca.InterfazConsola
                             string opcionLibro = Console.ReadLine();
                             if (opcionLibro.ToUpper() == "3")
                             {
-                                libros.GetListaLibro();
+                                foreach (Libro libro in biblioteca.Libros)
+                                {
+                                    Console.WriteLine(libro.ToString());
+                                }
 
                             }
 
