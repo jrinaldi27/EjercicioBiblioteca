@@ -20,8 +20,8 @@ namespace EjercicioBiblioteca
         }
         public List<Cliente> Traer(string id)
         {
-            string json2 = WebHelper.Get("cliente/" + id.ToString());
-            List<Cliente> resultado = Maplist(json2);
+            string json = WebHelper.Get("cliente/" + id.ToString());
+            List<Cliente> resultado = Maplist(json);
             return resultado;
         }
 

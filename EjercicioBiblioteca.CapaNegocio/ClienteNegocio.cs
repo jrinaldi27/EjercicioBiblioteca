@@ -33,8 +33,6 @@ namespace EjercicioBiblioteca.CapaNegocio
         {
             List<Cliente> lista = clienteDatos.Traer(usuario);
 
-
-
             return lista;
         }
     }

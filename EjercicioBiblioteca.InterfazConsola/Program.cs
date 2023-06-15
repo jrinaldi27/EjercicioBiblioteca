@@ -79,7 +79,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                             if (opcionCliente.ToUpper() == "2")
                             {
                                 string usuario = Utilidades.InsertarString("Ingrese el numero de usuario a buscar");
-                                usuario = Console.ReadLine();
+                               
                                 List<Cliente> lista = clienteNegocio.GetClientesPorUsuario(usuario);
 
                                 foreach(Cliente c in lista)
