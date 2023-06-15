@@ -13,13 +13,13 @@ namespace EjercicioBiblioteca.InterfazConsola
         {
             Biblioteca biblioteca = new Biblioteca("biblio1", "calle nueva 123");
             
-            LibroNegocio libros = new LibroNegocio();
+            LibroNegocio libroNegocio = new LibroNegocio();
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             EjemplaresNegocio ejemplaresNegocio = new EjemplaresNegocio();
             PrestamoNegocio prestamoNegocio = new PrestamoNegocio();
 
             //
-            biblioteca.Libros = libros.GetListaLibro();
+            biblioteca.Libros = libroNegocio.GetListaLibro();
             biblioteca.Clientes = clienteNegocio.GetListaCliente();
             biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
             
@@ -103,6 +103,12 @@ namespace EjercicioBiblioteca.InterfazConsola
                         case "2":
                             Console.WriteLine(menuLibros);
                             string opcionLibro = Console.ReadLine();
+
+                            if(opcionLibro.ToUpper() == "1")
+                            {
+                                //libroNegocio.Alta(2, "LIBRO PRUEBA", "AUTOR PRUEBA", "SANTILLANA", 120, 1, "Pruebas");
+                            }
+
                             if (opcionLibro.ToUpper() == "3")
                             {
                                 foreach (Libro libro in biblioteca.Libros)
@@ -110,6 +116,11 @@ namespace EjercicioBiblioteca.InterfazConsola
                                     Console.WriteLine(libro.ToString());
                                 }
 
+                            }
+
+                            if (opcionLibro.ToUpper() == "4")
+                            {
+                                //ejemplaresNegocio.Alta(2, 20, "Nuevo", Convert.ToDateTime("15/06/2023"), 2000);
                             }
 
                             if (opcionLibro.ToUpper() == "6")
@@ -134,7 +145,7 @@ namespace EjercicioBiblioteca.InterfazConsola
 
                             if(opcionPrestamo.ToUpper() == "1")
                             {
-                                prestamoNegocio.Alta(904251, 6, 15, Convert.ToDateTime("15/06/23"), Convert.ToDateTime("22/06/23"), Convert.ToDateTime("22/06/23"), 2);
+                                //prestamoNegocio.Alta(904251, 6, 15, Convert.ToDateTime("15/06/23"), Convert.ToDateTime("22/06/23"), Convert.ToDateTime("22/06/23"), 2);
                             }
                             
                             if (opcionPrestamo.ToUpper() == "2")

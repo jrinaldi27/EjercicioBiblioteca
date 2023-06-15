@@ -14,7 +14,7 @@ namespace EjercicioBiblioteca
         public LibroNegocio()
         {
             _libroDatos = new LibroDatos();
-            
+
         }
         //probando metodo
         public List<Libro> GetListaLibro()
@@ -22,22 +22,20 @@ namespace EjercicioBiblioteca
             List<Libro> list = _libroDatos.TraerTodos();
 
             return list;
-        } 
-        
-        //public void Alta(int id, string titulo, string autor, DateTime fechaPublicacion, string email)
-       // {
-                 //Libro libro = new Libro();
-                // libro.IdLibro = id;
-                // libro.Titulo = titulo;
-                // cliente.Direccion=direccion;
-                // cliente.IdCliente=idCliente;
-                // cliente.Email=email;
-                 
-                // TransactionResult transaction= _clienteDatos.Insertar(Cliente);
-                 
-                // if(!transaction.IsOk)
-                 //    throw new Exception(transaction.Error);
         }
 
-    } 
-//}
+        public void Alta(int id, string titulo, string autor, string editorial, int paginas, int edicion, string tema)
+        {
+            Libro libro = new Libro(id, titulo, autor, editorial, paginas, edicion, tema);
+
+
+            TransactionResult transaction = _libroDatos.InsertarLibro(libro);
+
+            if (!transaction.IsOk)
+            {
+                throw new Exception(transaction.Error);
+            }
+
+        }
+    }
+}

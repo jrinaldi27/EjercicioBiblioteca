@@ -72,15 +72,13 @@ namespace EjercicioBiblioteca
         }
 
 
-        public Libro(int idLibro, string titulo, string autor, DateTime fechaPublicacion,
+        public Libro(int idLibro, string titulo, string autor,
             string editorial, int paginas, int edicion, string tema)
         {
             IdLibro = idLibro;
             Titulo = titulo;
             Autor = autor;
-            FechaPublicacion = fechaPublicacion;
             Editorial = editorial;
-            Ejemplares = new List<Ejemplar>();
             Tema = tema;
             Edicion = edicion;
             Paginas = paginas;

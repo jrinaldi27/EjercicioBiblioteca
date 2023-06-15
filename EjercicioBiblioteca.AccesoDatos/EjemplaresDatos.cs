@@ -56,7 +56,7 @@ namespace EjercicioBiblioteca
         public TransactionResult InsertarEjemplar(Ejemplar ejemplar)
         {
             NameValueCollection ejemplarDatos = ReverseMap(ejemplar);
-            string json = WebHelper.Post("Ejemplar", ejemplarDatos);
+            string json = WebHelper.Post("Biblioteca/Ejemplares", ejemplarDatos);
 
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;

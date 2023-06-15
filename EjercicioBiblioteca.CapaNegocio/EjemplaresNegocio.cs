@@ -21,5 +21,20 @@ namespace EjercicioBiblioteca.CapaNegocio
             return lista;
         }
 
+
+
+        public void Alta(int idLibro, int id, string observaciones, DateTime FechaAlta, int precio)
+        {
+            Ejemplar libro = new Ejemplar(idLibro, id, observaciones, FechaAlta, precio);
+
+
+            TransactionResult transaction = ejemplaresDatos.InsertarEjemplar(libro);
+
+            if (!transaction.IsOk)
+            {
+                throw new Exception(transaction.Error);
+            }
+
+        }
     }
 }
