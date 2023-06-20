@@ -75,7 +75,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                             {
 
                                 AgregarCliente(biblioteca);
-                                clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
+                                
 
                                 
                                 clienteNegocio.Alta(Utilidades.InsertarInt("ingrese dni"),
