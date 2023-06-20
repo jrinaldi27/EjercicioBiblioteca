@@ -51,7 +51,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                     // validamos si el input es válido (en este caso podemos tmb dejar que el switch se encargue en el default.
                     // lo dejo igual por las dudas si quieren usar el default del switch para otra cosa.
                     //String[] opcionesValidas = new String[] { "1", "2", "3", "4", "X" };
-                    //String[] opcionesClientes = new String[] { "1", "2", "3", "4", "X" };
+               
 
                     if (opcionSeleccionada.ToUpper() == "X")
                     {
@@ -131,17 +131,20 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 int idlibro = Utilidades.InsertarInt("ingrese id libro");
 
                                 List<Libro> l1 = libroNegocio.GetListaLibro();
+                                bool encontrado = false;
                                 foreach (Libro l in l1)
                                 {
                                     if (idlibro == l.IdLibro)
                                     {
                                         Console.WriteLine(l.ToString());
-                                        break;
-                                    } else
-                                    {
-                                        Console.WriteLine("No existe un libro con ese id");
-                                    }
+                                        encontrado = true;
+                                    } 
                                     
+                                }
+
+                                if(!encontrado)
+                                {
+                                    Console.WriteLine("No existen libros con ese Id");
                                 }
 
 
@@ -179,7 +182,6 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 }
                             }
 
-                            //lo agregue para ver la lista de ejemplares pero da error
                             if (opcionLibro.ToUpper() == "6")
                             {
                                 List<Ejemplar> listado = ejemplaresNegocio.GetListaEjemplares();
@@ -224,19 +226,22 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 int idejemplar = Utilidades.InsertarInt("ingrese id ejemplar");
 
                                 List<Prestamo> lista = prestamoNegocio.GetListaPrestamo();
+                                bool encontrado = false;
                                 foreach (Prestamo p in lista)
                                 {
                                     if (idejemplar == p.IdEjemplar)
                                     {
                                         Console.WriteLine(p.ToString());
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("No existe un prestamo asociado a ese ejemplar");
+                                        encontrado = true;
                                     }
 
                                 }
+
+                                if (!encontrado)
+                                {
+                                    Console.WriteLine("No se encontraron prestamos para ese ejemplar");
+                                }
+
                             } else
                             {
                                 break;
@@ -268,7 +273,7 @@ namespace EjercicioBiblioteca.InterfazConsola
 
                                 if (!encontrado)
                                 {
-                                    Console.WriteLine("no se encontro el id cliente");
+                                    Console.WriteLine("No se encontraron prestamos asociados a ese id de cliente");
                                 }
 
                             }
@@ -278,18 +283,22 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 int idlibro = Utilidades.InsertarInt("ingrese id del libro");
 
                                 List<Ejemplar> lista = ejemplaresNegocio.GetListaEjemplares();
+                                bool encontrado = false;    
                                 foreach (Ejemplar e in lista)
                                 {
                                     if (idlibro == e.IdLibro)
                                     {
+                                        encontrado = true;
                                         Console.WriteLine(e.ToString());
 
                                     }
-                                    else
-                                    {
-                                        Console.WriteLine("El cliente no tiene prestamos asociados");
-                                    }
+                                    
 
+                                }
+
+                                if (!encontrado)
+                                {
+                                    Console.WriteLine("No se encontraron ejemplares asociados a ese idLibro");
                                 }
                             }
 
@@ -324,113 +333,7 @@ namespace EjercicioBiblioteca.InterfazConsola
 
         }
 
-        public static void AgregarCliente(Biblioteca biblioteca)
-        {
-           // Cliente c1 = new Cliente(Utilidades.InsertarInt("Ingrese id de cliente"),
-               // Utilidades.InsertarString("Ingrese email"), Utilidades.InsertarString("Ingrese nombre"),
-              //  Utilidades.InsertarString("Ingrese apellido"), Utilidades.InsertarString("Ingrese direccion"));
-
-           // biblioteca.IngresarCliente(c1);
-            Console.WriteLine("cliente agregado");
-        }
-
-        public static void ListarClientes(Biblioteca biblioteca)
-        {
-
-            foreach (Cliente c in biblioteca.Clientes)
-            {
-
-                Console.WriteLine(c.ToString());
-            }
-        }
-
-        //check porque creo que ya esta el metodo
-         private static void MostrarClientePorId()
-        {
-            Console.WriteLine("(Ingresar 'c' para cancelar)");
-            try
-            {
-                int idCliente = Utilidades.PedirNumeroNatural("Ingresar Id del Cliente:");
-
-                ClienteNegocio clienteNegocio = new ClienteNegocio();  //agregado
-                //Cliente cliente = clienteNegocio.ObtenerClientePorId(idCliente);
-
-                //if (cliente == null)
-                //{
-                  //  Utilidades.PedirContinuacion($"No existe un cliente con Id {idCliente}.");
-                    //return;
-                //}
-
-                //Console.WriteLine(cliente);
-            }
-
-            catch (Exception)
-            {
-                Console.WriteLine("Ocurrio un error consultar los clientes. Vuelva a intentar en unos minutos.");
-            }
-
-            Console.WriteLine();
-
-
-
-        }
-        public static void AgregarLibro(Biblioteca biblioteca)
-        {
-            Libro l1 = new Libro(Utilidades.InsertarInt("Ingrese id de Libro"),
-               Utilidades.InsertarString("Ingrese Titulo"), Utilidades.InsertarString("Ingrese autor"),
-                Utilidades.InsertarString("Ingrese editorial"), Utilidades.InsertarInt("Ingrese edición"), Utilidades.InsertarInt("Ingrese paginas"), Utilidades.InsertarString("Ingrese tema"));
-
-            //biblioteca.IngresarCliente(l1);  check. dice cliente en lugar de libro
-            Console.WriteLine("libro agregado");
-        }
-
-        public static void ListarLibros(Biblioteca biblioteca)
-        {
-
-            foreach (Libro c in biblioteca.Libros)
-            {
-
-                Console.WriteLine(c.ToString());
-            }
-        }
-
-        private static void MostrarLibroPorId()
-        {
-            Console.WriteLine("(Ingresar 'c' para cancelar)");
-            try
-            {
-                int idLibro = Utilidades.PedirNumeroNatural("Ingresar Id del Cliente:");
-                LibroNegocio libroNegocio = new LibroNegocio();
-                Libro libro = libroNegocio.ObtenerLibroPorId(idLibro);
-
-                if (libro == null)
-                {
-                   Utilidades.PedirContinuacion($"No existe un libro con Id {idLibro}.");
-                    return;
-                }
-
-                Console.WriteLine(libro);
-            }
-
-            catch (Exception)
-            {
-                Console.WriteLine("Ocurrio un error consultar los libros. Vuelva a intentar en unos minutos.");
-            }
-
-            Console.WriteLine();
-
-        }
-
-        //chequear el metodo ingresar ejemplar
-
-        //public static void AgregarEjemplar(Libro libro)
-        //{
-          //  Ejemplar e1 = new Ejemplar(Utilidades.InsertarInt("Ingrese id del Libro"), Utilidades.InsertarInt("Ingrese el id del Ejemplar"),
-            //Utilidades.InsertarString("Ingrese obsevaciones"), Utilidades.InsertarFecha("Ingrese fecha de alta"), Utilidades.InsertarInt("ingrese precio"));
-
-            //Ejemplar.IngresarEjemplar(e1);
-            //Console.WriteLine("Ejemplar agregado");
-        //}
+        
     }
 }
 
