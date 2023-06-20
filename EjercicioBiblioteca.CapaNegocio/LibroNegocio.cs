@@ -28,6 +28,11 @@ namespace EjercicioBiblioteca
         {
             List<Libro> lista = _libroDatos.Traer(id);
 
+            if(lista.Count == 0)
+            {
+                Console.WriteLine("No hay un libro con ese Id");
+            }
+
             return lista;
         }
 

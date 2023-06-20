@@ -12,13 +12,11 @@ namespace EjercicioBiblioteca.InterfazConsola
         static void Main(string[] args)
         {
 
-            
             LibroNegocio libroNegocio = new LibroNegocio();
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             EjemplaresNegocio ejemplaresNegocio = new EjemplaresNegocio();
             PrestamoNegocio prestamoNegocio = new PrestamoNegocio();
 
-            
 
         bool continuarActivo = true;
 
@@ -52,8 +50,8 @@ namespace EjercicioBiblioteca.InterfazConsola
 
                     // validamos si el input es válido (en este caso podemos tmb dejar que el switch se encargue en el default.
                     // lo dejo igual por las dudas si quieren usar el default del switch para otra cosa.
-                    String[] opcionesValidas = new String[] { "1", "2", "3", "4", "X" };
-                    String[] opcionesClientes = new String[] { "1", "2", "3", "4", "X" };
+                    //String[] opcionesValidas = new String[] { "1", "2", "3", "4", "X" };
+                    //String[] opcionesClientes = new String[] { "1", "2", "3", "4", "X" };
 
                     if (opcionSeleccionada.ToUpper() == "X")
                     {
@@ -71,10 +69,6 @@ namespace EjercicioBiblioteca.InterfazConsola
                             if (opcionCliente.ToUpper() == "1")
                             {
 
-                                AgregarCliente(biblioteca);
-                                //clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
-
-
                                 clienteNegocio.Alta(Utilidades.InsertarInt("ingrese dni"),
                                     Utilidades.InsertarString("ingrese nombre"),
                                     Utilidades.InsertarString("ingrese apellido"),
@@ -84,7 +78,6 @@ namespace EjercicioBiblioteca.InterfazConsola
                                     Utilidades.InsertarFecha("inserte fecha nacimiento"),
                                     DateTime.Now, true, Utilidades.InsertarString("inserte usuario"),
                                     Utilidades.InsertarInt("inserte id cliente"));
-                                    
 
                             }
 

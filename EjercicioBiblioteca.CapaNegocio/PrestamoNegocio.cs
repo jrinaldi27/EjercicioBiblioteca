@@ -22,6 +22,11 @@ namespace EjercicioBiblioteca.CapaNegocio
         {
             List<Prestamo> list = prestamoDatos.Traer(id);
 
+            if(list.Count == 0)
+            {
+                Console.WriteLine("No hay un prestamo con ese Id de ejemplar");
+            }
+
             return list;
         }
 

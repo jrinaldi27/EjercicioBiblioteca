@@ -26,6 +26,10 @@ namespace EjercicioBiblioteca.CapaNegocio
         {
             List <Ejemplar> lista = ejemplaresDatos.Traer(idLibro);
 
+            if(lista.Count == 0)
+            {
+                Console.WriteLine("No hay un ejemplar con ese Id de libro");
+            }
 
             
             return lista;
