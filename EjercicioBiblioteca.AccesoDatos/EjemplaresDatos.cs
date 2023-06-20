@@ -14,7 +14,7 @@ namespace EjercicioBiblioteca
     {
         public List<Ejemplar> TraerTodos()
         {
-            string json2 = WebHelper.Get("Ejemplares");
+            string json2 = WebHelper.Get("/Biblioteca/Ejemplares");
             List<Ejemplar> resultado = Maplist(json2);
             return resultado;
         }

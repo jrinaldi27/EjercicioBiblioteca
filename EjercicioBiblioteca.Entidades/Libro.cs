@@ -86,9 +86,15 @@ namespace EjercicioBiblioteca
         }
 
 
+        //public override string ToString()
+        //{
+          //  return string.Format("{0}-{1}-{2}-{3}-{4}-{5}-{6}-{7}", IdLibro, Titulo, Autor, FechaPublicacion, Editorial, Tema, Edicion, Paginas);
+        //}
+
         public override string ToString()
         {
-            return string.Format("{0}-{1}-{2}-{3}-{4}-{5}-{6}-{7}", IdLibro, Titulo, Autor, FechaPublicacion, Editorial, Tema, Edicion, Paginas);
+            return (this.IdLibro + ") " + this.Titulo + ", " + this.Tema + ", " + this.Autor + ", " + this.Editorial + ", " +
+                this.Edicion + ", " + this.Tema);
         }
 
 

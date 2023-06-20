@@ -19,9 +19,9 @@ namespace EjercicioBiblioteca.InterfazConsola
             PrestamoNegocio prestamoNegocio = new PrestamoNegocio();
 
             //
-            biblioteca.Libros = libroNegocio.GetListaLibro();
-            biblioteca.Clientes = clienteNegocio.GetListaCliente();
-            biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
+            //biblioteca.Libros = libroNegocio.GetListaLibro();
+            //biblioteca.Clientes = clienteNegocio.GetListaCliente();
+            //biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
             
             
 
@@ -36,7 +36,8 @@ namespace EjercicioBiblioteca.InterfazConsola
             string menuLibros = ("Presione una de las siguientes opciones\n1) Agregar Libro \n 2) Consultar Libro \n 3) Listar libros \n " +
                 "4) Agregar ejemplar  \n 5) Traer Ejemplar por id \n  ");
 
-            string menuPrestamos = ("1) Prestar libro \n 2) Listar Prestamos \n  ");
+            string menuPrestamos = ("1) Prestar libro \n 2) Listar Prestamos \n" +
+                "3) Consultar Prestamos por libro \n  ");
 
             // pantalla de bienvenida
             Console.WriteLine("Bienvenido a Biblioteca");
@@ -72,13 +73,27 @@ namespace EjercicioBiblioteca.InterfazConsola
                             string opcionCliente = Console.ReadLine();
                             if (opcionCliente.ToUpper() == "1")
                             {
+<<<<<<< HEAD
                                 AgregarCliente(biblioteca);
                                 clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
+=======
+                                
+                                clienteNegocio.Alta(Utilidades.InsertarInt("ingrese dni"),
+                                    Utilidades.InsertarString("ingrese nombre"),
+                                    Utilidades.InsertarString("ingrese apellido"),
+                                    Utilidades.InsertarString("ingrese direccion"),
+                                    Utilidades.InsertarString("ingrese email"),
+                                    Utilidades.InsertarString("ingrese telefono"),
+                                    Utilidades.InsertarFecha("inserte fecha nacimiento"),
+                                    DateTime.Now, true, Utilidades.InsertarString("inserte usuario"),
+                                    Utilidades.InsertarInt("inserte id cliente")); ;
+                                    
+>>>>>>> 42029e4d6a96d4961f3405c96e91e1ce579a1185
                             }
 
                             if (opcionCliente.ToUpper() == "2")
                             {
-                                string usuario = Utilidades.InsertarString("Ingrese el numero de usuario a buscar");
+                                string usuario = Utilidades.InsertarString("Ingrese el usuario a buscar");
                                
                                 List<Cliente> lista = clienteNegocio.GetClientesPorUsuario(usuario);
 
@@ -92,7 +107,12 @@ namespace EjercicioBiblioteca.InterfazConsola
 
                             if (opcionCliente.ToUpper() == "3")
                             {
-                                ListarClientes(biblioteca);
+                                List<Cliente> listado = clienteNegocio.GetListaCliente();
+                                foreach (Cliente c in listado)
+                                {
+                                    String leyenda = c.ToString();
+                                    Console.WriteLine(leyenda);
+                                }
                             }
                             else
                             {
@@ -106,21 +126,56 @@ namespace EjercicioBiblioteca.InterfazConsola
 
                             if(opcionLibro.ToUpper() == "1")
                             {
-                                //libroNegocio.Alta(2, "LIBRO PRUEBA", "AUTOR PRUEBA", "SANTILLANA", 120, 1, "Pruebas");
+                                libroNegocio.Alta(Utilidades.InsertarInt("inserte id de libro"), 
+                                    Utilidades.InsertarString("inserte titulo")
+                                    , Utilidades.InsertarString("inserte autor"), 
+                                    Utilidades.InsertarString("inserte editorial"), 
+                                    Utilidades.InsertarInt("inserte cantidad de paginas"), 
+                                    Utilidades.InsertarInt("inserte numero de edicion"), 
+                                    Utilidades.InsertarString("inserte tema"));
+                            }
+
+                           //ver porque los codigos de los libros son todos cero
+                            if (opcionLibro.ToUpper() == "2")
+                            {
+                                int idlibro = Utilidades.InsertarInt("ingrese id libro");
+
+                                List<Libro> l1 = libroNegocio.GetListaLibro();
+                                foreach (Libro l in l1)
+                                {
+                                    if (idlibro == l.IdLibro)
+                                    {
+                                        Console.WriteLine(l.ToString());
+                                        break;
+                                    } else
+                                    {
+                                        Console.WriteLine("No existe un libro con ese id");
+                                    }
+                                    
+                                }
+
+
+
                             }
 
                             if (opcionLibro.ToUpper() == "3")
                             {
-                                foreach (Libro libro in biblioteca.Libros)
+
+                                List<Libro> listado = libroNegocio.GetListaLibro();
+                                foreach (Libro l in listado)
                                 {
-                                    Console.WriteLine(libro.ToString());
+                                    String leyenda = l.ToString();
+                                    Console.WriteLine(leyenda);
                                 }
 
                             }
 
                             if (opcionLibro.ToUpper() == "4")
                             {
-                                //ejemplaresNegocio.Alta(2, 20, "Nuevo", Convert.ToDateTime("15/06/2023"), 2000);
+                                ejemplaresNegocio.Alta(Utilidades.InsertarInt("ingrese id libro"),
+                                    Utilidades.InsertarInt("ingrese id ejemplar"),
+                                    Utilidades.InsertarString("ingrese observaciones"),
+                                    DateTime.Now, Utilidades.InsertarInt("ingrese precio"));
                             }
 
                             if (opcionLibro.ToUpper() == "5")
@@ -145,14 +200,40 @@ namespace EjercicioBiblioteca.InterfazConsola
 
                             if(opcionPrestamo.ToUpper() == "1")
                             {
-                                //prestamoNegocio.Alta(904251, 6, 15, Convert.ToDateTime("15/06/23"), Convert.ToDateTime("22/06/23"), Convert.ToDateTime("22/06/23"), 2);
+                                prestamoNegocio.Alta(Utilidades.InsertarInt("ingrese id cliente"),
+                                    Utilidades.InsertarInt("ingrese id ejemplar"),
+                                    Utilidades.InsertarInt("ingrese plazo"),
+                                    DateTime.Now, Utilidades.InsertarFecha("ingrese fecha de devolucion tentativa"),
+                                    DateTime.Now, Utilidades.InsertarInt("ingrese id prestamo"));
                             }
                             
                             if (opcionPrestamo.ToUpper() == "2")
                             {
-                               foreach (Prestamo p in biblioteca.Prestamos)
+                                List<Prestamo> listado = prestamoNegocio.GetListaPrestamo();
+                                foreach (Prestamo p in listado)
                                 {
-                                    Console.WriteLine(p.ToString());
+                                    String leyenda = p.ToString();
+                                    Console.WriteLine(leyenda);
+                                }
+                            }
+
+                           
+                            if (opcionPrestamo.ToUpper() == "3")
+                            {
+                                int idejemplar = Utilidades.InsertarInt("ingrese id ejemplar");
+
+                                List<Prestamo> lista = prestamoNegocio.GetListaPrestamo();
+                                foreach (Prestamo p in lista)
+                                {
+                                    if (idejemplar == p.IdEjemplar)
+                                    {
+                                        Console.WriteLine(p.ToString());
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("No existe un prestamo asociado a ese ejemplar");
+                                    }
 
                                 }
                             }
@@ -204,7 +285,87 @@ namespace EjercicioBiblioteca.InterfazConsola
             }
         }
 
-        
+         private static void MostrarClientePorId()
+        {
+            Console.WriteLine("(Ingresar 'c' para cancelar)");
+            try
+            {
+                int idCliente = Utilidades.PedirNumeroNatural("Ingresar Id del Cliente:");
+                Cliente cliente = ClienteNegocio.ObtenerClientePorId();
+
+                if (cliente == null)
+                {
+                    Utilidades.PedirContinuacion($"No existe un cliente con Id {idCliente}.");
+                    return;
+                }
+
+                Console.WriteLine(cliente);
+            }
+
+            catch (Exception)
+            {
+                Console.WriteLine("Ocurrio un error consultar los clientes. Vuelva a intentar en unos minutos.");
+            }
+
+            Console.WriteLine();
+
+
+
+        }
+        public static void AgregarLibro(Biblioteca biblioteca)
+        {
+            Libro l1 = new Libro(Utilidades.InsertarInt("Ingrese id de Libro"),
+               Utilidades.InsertarString("Ingrese Titulo"), Utilidades.InsertarString("Ingrese autor"), Utilidades.InsertarFecha("Ingrese fecha"),
+                Utilidades.InsertarString("Ingrese editorial"), Utilidades.InsertarInt("Ingrese edición"), Utilidades.InsertarInt("Ingrese paginas"), Utilidades.InsertarString("Ingrese tema"));
+
+            biblioteca.IngresarCliente(l1);
+            Console.WriteLine("libro agregado");
+        }
+
+        public static void ListarLibros(Biblioteca biblioteca)
+        {
+
+            foreach (Libro c in biblioteca.Libros)
+            {
+
+                Console.WriteLine(c.ToString());
+            }
+        }
+
+        private static void MostrarLibroPorId()
+        {
+            Console.WriteLine("(Ingresar 'c' para cancelar)");
+            try
+            {
+                int idLibro = Utilidades.PedirNumeroNatural("Ingresar Id del Cliente:");
+                Libro libro = LibroNegocio.ObtenerLibroPorId();
+
+                if (libro == null)
+                {
+                    Utilidades.PedirContinuacion($"No existe un libro con Id {idLibro}.");
+                    return;
+                }
+
+                Console.WriteLine(libro);
+            }
+
+            catch (Exception)
+            {
+                Console.WriteLine("Ocurrio un error consultar los libros. Vuelva a intentar en unos minutos.");
+            }
+
+            Console.WriteLine();
+
+        }
+
+        public static void AgregarEjemplar(Libro libro)
+        {
+            Ejemplar e1 = new Ejemplar(Utilidades.InsertarInt("Ingrese id del Libro"), Utilidades.InsertarInt("Ingrese el id del Ejemplar"),
+            Utilidades.InsertarString("Ingrese obsevaciones"), Utilidades.InsertarInt("Ingrese precio"), Utilidades.InsertarFecha("Ingrese fecha de alta"));
+
+            Ejemplar.IngresarEjemplar(e1);
+            Console.WriteLine("Ejemplar agregado");
+        }
     }
 }
 

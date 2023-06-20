@@ -24,6 +24,13 @@ namespace EjercicioBiblioteca
             return list;
         }
 
+        public List<Libro> GetbyId(string id)
+        {
+            List<Libro> lista = _libroDatos.Traer(id);
+
+            return lista;
+        }
+
         public void Alta(int id, string titulo, string autor, string editorial, int paginas, int edicion, string tema)
         {
             Libro libro = new Libro(id, titulo, autor, editorial, paginas, edicion, tema);
@@ -36,6 +43,13 @@ namespace EjercicioBiblioteca
                 throw new Exception(transaction.Error);
             }
 
+        }
+         public Libro ObtenerLibroPorId(int idLibro)
+        {
+            if (idLibro == 0) return null;
+
+            List<Libro> libros = LibroDatos.Traer(idLibro);//No funciona
+            return Libro.Find(Libro => Libro.IdCliente == idLibro);
         }
     }
 }
