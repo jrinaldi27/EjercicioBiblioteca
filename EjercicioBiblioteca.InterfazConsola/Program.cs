@@ -19,9 +19,9 @@ namespace EjercicioBiblioteca.InterfazConsola
             PrestamoNegocio prestamoNegocio = new PrestamoNegocio();
 
             //
-            biblioteca.Libros = libroNegocio.GetListaLibro();
-            biblioteca.Clientes = clienteNegocio.GetListaCliente();
-            biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
+            //biblioteca.Libros = libroNegocio.GetListaLibro();
+            //biblioteca.Clientes = clienteNegocio.GetListaCliente();
+            //biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
             
             
 
@@ -107,6 +107,16 @@ namespace EjercicioBiblioteca.InterfazConsola
                             if(opcionLibro.ToUpper() == "1")
                             {
                                 //libroNegocio.Alta(2, "LIBRO PRUEBA", "AUTOR PRUEBA", "SANTILLANA", 120, 1, "Pruebas");
+                            }
+
+                            if (opcionLibro.ToUpper() == "2")
+                            {
+                                List<Libro> listado =  libroNegocio.GetListaLibro();
+                                foreach (Libro l in listado)
+                                {
+                                    String leyenda = l.ToString();
+                                    Console.WriteLine(leyenda);
+                                }
                             }
 
                             if (opcionLibro.ToUpper() == "3")
