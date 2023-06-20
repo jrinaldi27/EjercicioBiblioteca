@@ -263,7 +263,87 @@ namespace EjercicioBiblioteca.InterfazConsola
             }
         }
 
-        
+         private static void MostrarClientePorId()
+        {
+            Console.WriteLine("(Ingresar 'c' para cancelar)");
+            try
+            {
+                int idCliente = Utilidades.PedirNumeroNatural("Ingresar Id del Cliente:");
+                Cliente cliente = ClienteNegocio.ObtenerClientePorId();
+
+                if (cliente == null)
+                {
+                    Utilidades.PedirContinuacion($"No existe un cliente con Id {idCliente}.");
+                    return;
+                }
+
+                Console.WriteLine(cliente);
+            }
+
+            catch (Exception)
+            {
+                Console.WriteLine("Ocurrio un error consultar los clientes. Vuelva a intentar en unos minutos.");
+            }
+
+            Console.WriteLine();
+
+
+
+        }
+        public static void AgregarLibro(Biblioteca biblioteca)
+        {
+            Libro l1 = new Libro(Utilidades.InsertarInt("Ingrese id de Libro"),
+               Utilidades.InsertarString("Ingrese Titulo"), Utilidades.InsertarString("Ingrese autor"), Utilidades.InsertarFecha("Ingrese fecha"),
+                Utilidades.InsertarString("Ingrese editorial"), Utilidades.InsertarInt("Ingrese edición"), Utilidades.InsertarInt("Ingrese paginas"), Utilidades.InsertarString("Ingrese tema"));
+
+            biblioteca.IngresarCliente(l1);
+            Console.WriteLine("libro agregado");
+        }
+
+        public static void ListarLibros(Biblioteca biblioteca)
+        {
+
+            foreach (Libro c in biblioteca.Libros)
+            {
+
+                Console.WriteLine(c.ToString());
+            }
+        }
+
+        private static void MostrarLibroPorId()
+        {
+            Console.WriteLine("(Ingresar 'c' para cancelar)");
+            try
+            {
+                int idLibro = Utilidades.PedirNumeroNatural("Ingresar Id del Cliente:");
+                Libro libro = LibroNegocio.ObtenerLibroPorId();
+
+                if (libro == null)
+                {
+                    Utilidades.PedirContinuacion($"No existe un libro con Id {idLibro}.");
+                    return;
+                }
+
+                Console.WriteLine(libro);
+            }
+
+            catch (Exception)
+            {
+                Console.WriteLine("Ocurrio un error consultar los libros. Vuelva a intentar en unos minutos.");
+            }
+
+            Console.WriteLine();
+
+        }
+
+        public static void AgregarEjemplar(Libro libro)
+        {
+            Ejemplar e1 = new Ejemplar(Utilidades.InsertarInt("Ingrese id del Libro"), Utilidades.InsertarInt("Ingrese el id del Ejemplar"),
+            Utilidades.InsertarString("Ingrese obsevaciones"), Utilidades.InsertarInt("Ingrese precio"), Utilidades.InsertarFecha("Ingrese fecha de alta"));
+
+            Ejemplar.IngresarEjemplar(e1);
+            Console.WriteLine("Ejemplar agregado");
+        }
     }
 }
 
