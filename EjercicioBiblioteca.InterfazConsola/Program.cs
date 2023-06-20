@@ -76,14 +76,9 @@ namespace EjercicioBiblioteca.InterfazConsola
                             if (opcionCliente.ToUpper() == "1")
                             {
 
-<<<<<<< HEAD
                                 AgregarCliente(biblioteca);
-                                
-=======
-                                //AgregarCliente(biblioteca);
-                                //clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
+                                clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
 
->>>>>>> 0334d35826e8c30f2da8e712769aeb4faba4b033
 
                                 clienteNegocio.Alta(Utilidades.InsertarInt("ingrese dni"),
                                     Utilidades.InsertarString("ingrese nombre"),
