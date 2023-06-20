@@ -71,7 +71,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                             if (opcionCliente.ToUpper() == "1")
                             {
 
-                                //AgregarCliente(biblioteca);
+                                AgregarCliente(biblioteca);
                                 //clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
 
 
@@ -266,6 +266,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                                     {
                                         encontrado = true;
                                         Console.WriteLine(p.ToString());
+
                                         
                                     }
 
