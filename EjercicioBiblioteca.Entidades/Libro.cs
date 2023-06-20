@@ -93,8 +93,8 @@ namespace EjercicioBiblioteca
 
         public override string ToString()
         {
-            return (this.IdLibro + ") " + this.Titulo + ", " + this.Tema + ", " + this.Autor + ", " + this.Editorial + ", " +
-                this.Edicion + ", " + this.Tema);
+            return ("Id Libro: " + this.IdLibro + ", " + "Titulo: " + this.Titulo + ", " + "Tema: " + this.Tema + ", " + "Autor: " + this.Autor + ", " +"Editorial: " + this.Editorial + ", " +
+                "Edición: " + this.Edicion + ", " + "Tema: " + this.Tema+ ".");
         }
 
 
