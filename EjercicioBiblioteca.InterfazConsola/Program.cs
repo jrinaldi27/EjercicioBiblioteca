@@ -78,7 +78,7 @@ namespace EjercicioBiblioteca.InterfazConsola
 
                             if (opcionCliente.ToUpper() == "2")
                             {
-                                string usuario = Utilidades.InsertarString("Ingrese el numero de usuario a buscar");
+                                string usuario = Utilidades.InsertarString("Ingrese el usuario a buscar");
                                
                                 List<Cliente> lista = clienteNegocio.GetClientesPorUsuario(usuario);
 
@@ -92,7 +92,12 @@ namespace EjercicioBiblioteca.InterfazConsola
 
                             if (opcionCliente.ToUpper() == "3")
                             {
-                                ListarClientes(biblioteca);
+                                List<Cliente> listado = clienteNegocio.GetListaCliente();
+                                foreach (Cliente c in listado)
+                                {
+                                    String leyenda = c.ToString();
+                                    Console.WriteLine(leyenda);
+                                }
                             }
                             else
                             {
@@ -106,24 +111,31 @@ namespace EjercicioBiblioteca.InterfazConsola
 
                             if(opcionLibro.ToUpper() == "1")
                             {
-                                //libroNegocio.Alta(2, "LIBRO PRUEBA", "AUTOR PRUEBA", "SANTILLANA", 120, 1, "Pruebas");
+                                libroNegocio.Alta(Utilidades.InsertarInt("inserte id de libro"), 
+                                    Utilidades.InsertarString("inserte titulo")
+                                    , Utilidades.InsertarString("inserte autor"), 
+                                    Utilidades.InsertarString("inserte editorial"), 
+                                    Utilidades.InsertarInt("inserte cantidad de paginas"), 
+                                    Utilidades.InsertarInt("inserte numero de edicion"), 
+                                    Utilidades.InsertarString("inserte tema"));
                             }
 
                             if (opcionLibro.ToUpper() == "2")
                             {
-                                List<Libro> listado =  libroNegocio.GetListaLibro();
-                                foreach (Libro l in listado)
-                                {
-                                    String leyenda = l.ToString();
-                                    Console.WriteLine(leyenda);
-                                }
+                                int id = Utilidades.InsertarInt("ingrese id libro");
+
+                                List<Libro> l1 = libroNegocio.GetbyId(id);
+                                Console.WriteLine(l1);
                             }
 
                             if (opcionLibro.ToUpper() == "3")
                             {
-                                foreach (Libro libro in biblioteca.Libros)
+
+                                List<Libro> listado = libroNegocio.GetListaLibro();
+                                foreach (Libro l in listado)
                                 {
-                                    Console.WriteLine(libro.ToString());
+                                    String leyenda = l.ToString();
+                                    Console.WriteLine(leyenda);
                                 }
 
                             }
@@ -160,10 +172,11 @@ namespace EjercicioBiblioteca.InterfazConsola
                             
                             if (opcionPrestamo.ToUpper() == "2")
                             {
-                               foreach (Prestamo p in biblioteca.Prestamos)
+                                List<Prestamo> listado = prestamoNegocio.GetListaPrestamo();
+                                foreach (Prestamo p in listado)
                                 {
-                                    Console.WriteLine(p.ToString());
-
+                                    String leyenda = p.ToString();
+                                    Console.WriteLine(leyenda);
                                 }
                             }
 

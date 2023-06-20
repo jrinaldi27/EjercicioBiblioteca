@@ -24,6 +24,13 @@ namespace EjercicioBiblioteca
             return list;
         }
 
+        public List<Libro> GetbyId(int id)
+        {
+            List<Libro> lista = _libroDatos.Traer(id);
+
+            return lista;
+        }
+
         public void Alta(int id, string titulo, string autor, string editorial, int paginas, int edicion, string tema)
         {
             Libro libro = new Libro(id, titulo, autor, editorial, paginas, edicion, tema);
