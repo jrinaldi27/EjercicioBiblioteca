@@ -36,5 +36,12 @@ namespace EjercicioBiblioteca.CapaNegocio
             }
 
         }
+         public Libro ObtenerEjemplarPorId(int idEjemplar)
+        {
+            if (idEjemplar == 0) return null;
+
+            List<Libro> Ejemplar = EjemplaresDatos.Traer(idEjemplar);//No funciona
+            return Libro.Find(Libro => Libro.IdCliente == idLibro);
+        }
     }
 }
