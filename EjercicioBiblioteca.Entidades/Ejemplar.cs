@@ -61,7 +61,7 @@ namespace EjercicioBiblioteca
 
         public override string ToString()
         {
-            return (this.IdLibro + ") " + this.Observaciones + ", " + this.FechaAlta + ", " + this.Id);
+            return ("Id Libro: " +this.IdLibro + ", " +  "Observaciones:" +this.Observaciones + ", " + "Fecha de Alta: " +  this.FechaAlta + ", " + "Id Ejemplar: " + this.Id);
         }
 
 
