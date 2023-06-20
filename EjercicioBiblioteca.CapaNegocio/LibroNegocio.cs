@@ -44,5 +44,12 @@ namespace EjercicioBiblioteca
             }
 
         }
+         public Libro ObtenerLibroPorId(int idLibro)
+        {
+            if (idLibro == 0) return null;
+
+            List<Libro> libros = LibroDatos.Traer(idLibro);//No funciona
+            return Libro.Find(Libro => Libro.IdCliente == idLibro);
+        }
     }
 }
