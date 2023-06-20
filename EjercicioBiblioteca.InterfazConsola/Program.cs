@@ -34,7 +34,7 @@ namespace EjercicioBiblioteca.InterfazConsola
             string menuClientes = ("Presione una de las siguientes opciones\n1) Agregar cliente \n 2) Consultar cliente \n 3) Listar clientes\n x) Salir ");
 
             string menuLibros = ("Presione una de las siguientes opciones\n1) Agregar Libro \n 2) Consultar Libro \n 3) Listar libros \n " +
-                "4) Agregar ejemplar \n 5) Borrar ejemplar \n 6) Traer Ejemplar por id \n 7)Traer cantidad ejemplares ");
+                "4) Agregar ejemplar  \n 5) Traer Ejemplar por id \n  ");
 
             string menuPrestamos = ("1) Prestar libro \n 2) Listar Prestamos \n  ");
 
@@ -72,8 +72,8 @@ namespace EjercicioBiblioteca.InterfazConsola
                             string opcionCliente = Console.ReadLine();
                             if (opcionCliente.ToUpper() == "1")
                             {
-                                //AgregarCliente(biblioteca);
-                                //clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
+                                AgregarCliente(biblioteca);
+                                clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
                             }
 
                             if (opcionCliente.ToUpper() == "2")
@@ -123,7 +123,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 //ejemplaresNegocio.Alta(2, 20, "Nuevo", Convert.ToDateTime("15/06/2023"), 2000);
                             }
 
-                            if (opcionLibro.ToUpper() == "6")
+                            if (opcionLibro.ToUpper() == "5")
                             {
                                 string idLibro = Utilidades.InsertarString("Ingrese el ID del libro a buscar");
 
