@@ -18,7 +18,14 @@ namespace EjercicioBiblioteca.AccesoDatos
             List<Prestamo> resultado = Maplist(json2);
             return resultado;
         }
-        
+
+        public List<Prestamo> Traer(int id)
+        {
+            string json2 = WebHelper.Get("Biblioteca/Prestamos/" + id.ToString()); // trae un texto en formato json de una web
+            List<Prestamo> resultado = Maplist(json2);
+            return resultado;
+        }
+
 
 
         private List<Prestamo> Maplist(string json)
