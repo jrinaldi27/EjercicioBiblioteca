@@ -19,6 +19,10 @@ namespace EjercicioBiblioteca.CapaNegocio
 
             if (!transaction.IsOk)
                 throw new Exception(transaction.Error);
+            else
+            {
+                Console.WriteLine("Cliente Agregado");
+            }
         }
 
 
@@ -36,12 +40,14 @@ namespace EjercicioBiblioteca.CapaNegocio
             return lista;
         }
 
-         public Cliente ObtenerClientePorId(int idCliente)
-        {
-            if (idCliente == 0) return null;
+        //no funciona porque el traer espera un string
 
-            List<Cliente> clientes = ClienteDatos.Traer(idCliente);//No funciona
-            return clientes.Find(cliente => cliente.IdCliente == idCliente);
-        }
+         //public Cliente ObtenerClientePorId(int idCliente)
+        //{
+            //if (idCliente == 0) return null;
+
+            //List<Cliente> clientes = ClienteDatos.Traer(idCliente);//No funciona
+            //return clientes.Find(cliente => cliente.IdCliente == idCliente);
+        //}
     }
 }

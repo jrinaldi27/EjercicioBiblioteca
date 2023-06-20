@@ -12,7 +12,17 @@ namespace EjercicioBiblioteca.CapaNegocio
         EjemplaresDatos ejemplaresDatos = new EjemplaresDatos();
 
 
-        public List<Ejemplar> GetEjemplares(string idLibro)
+
+        public List<Ejemplar> GetListaEjemplares()
+        {
+            List<Ejemplar> list = ejemplaresDatos.TraerTodos();
+
+            return list;
+        }
+
+
+
+        public List<Ejemplar> GetEjemplaresPorId(string idLibro)
         {
             List <Ejemplar> lista = ejemplaresDatos.Traer(idLibro);
 
@@ -33,15 +43,20 @@ namespace EjercicioBiblioteca.CapaNegocio
             if (!transaction.IsOk)
             {
                 throw new Exception(transaction.Error);
+            } else
+            {
+                Console.WriteLine("Ejemplar agregado");
             }
 
         }
-         public Libro ObtenerEjemplarPorId(int idEjemplar)
-        {
-            if (idEjemplar == 0) return null;
 
-            List<Libro> Ejemplar = EjemplaresDatos.Traer(idEjemplar);//No funciona
-            return Libro.Find(Libro => Libro.IdCliente == idLibro);
-        }
+
+         //public Libro ObtenerEjemplarPorId(int idEjemplar)
+        //{
+          //  if (idEjemplar == 0) return null;
+
+            //List<Libro> Ejemplar = EjemplaresDatos.Traer(idEjemplar);//No funciona
+            //return Libro.Find(Libro => Libro.IdCliente == idLibro);
+        //}
     }
 }

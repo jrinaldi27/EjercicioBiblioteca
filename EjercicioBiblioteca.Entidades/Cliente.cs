@@ -94,7 +94,7 @@ namespace EjercicioBiblioteca
 
         public override string ToString()
         {
-            return ( this.Apellido + ", " + this.Nombre + ", " + this.Email);
+            return ( this.Apellido + ", " + this.Nombre + ", " + this.Email + ", " + this.Usuario + ", " + this.IdCliente);
         }
 
     }
