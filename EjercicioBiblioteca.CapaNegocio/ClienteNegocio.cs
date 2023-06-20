@@ -36,6 +36,10 @@ namespace EjercicioBiblioteca.CapaNegocio
         public List<Cliente> GetClientesPorUsuario(string usuario)
         {
             List<Cliente> lista = clienteDatos.Traer(usuario);
+            if (lista.Count == 0)
+            {
+                Console.WriteLine("No hay un cliente con ese usuario");
+            }
 
             return lista;
         }

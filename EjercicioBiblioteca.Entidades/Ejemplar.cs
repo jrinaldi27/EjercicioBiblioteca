@@ -11,7 +11,7 @@ namespace EjercicioBiblioteca
         private int _idLibro;
         private int _id;
         private string _observaciones;
-        private int _precio;
+        private double _precio;
         private DateTime _fechaAlta;
         
 
@@ -42,7 +42,7 @@ namespace EjercicioBiblioteca
             set { _fechaAlta = value; }
         }
         
-        public int Precio
+        public double Precio
         {
             get { return _precio; }
             set { _precio = value; }
@@ -50,7 +50,7 @@ namespace EjercicioBiblioteca
 
         
 
-        public Ejemplar(int idLibro, int id , string observaciones, DateTime fechaAlta, int precio ) 
+        public Ejemplar(int idLibro, int id , string observaciones, DateTime fechaAlta, double precio ) 
         {
             IdLibro = idLibro;
             Id = id;

@@ -11,18 +11,13 @@ namespace EjercicioBiblioteca.InterfazConsola
     {
         static void Main(string[] args)
         {
-            Biblioteca biblioteca = new Biblioteca("biblio1", "calle nueva 123");
+
             
             LibroNegocio libroNegocio = new LibroNegocio();
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             EjemplaresNegocio ejemplaresNegocio = new EjemplaresNegocio();
             PrestamoNegocio prestamoNegocio = new PrestamoNegocio();
 
-            //
-            //biblioteca.Libros = libroNegocio.GetListaLibro();
-            //biblioteca.Clientes = clienteNegocio.GetListaCliente();
-            //biblioteca.Prestamos = prestamoNegocio.GetListaPrestamo();
-            
             
 
         bool continuarActivo = true;
@@ -263,19 +258,25 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 int idcliente = Utilidades.InsertarInt("ingrese id cliente");
 
                                 List<Prestamo> lista = prestamoNegocio.GetListaPrestamo();
+                                
+                                bool encontrado = false;
                                 foreach (Prestamo p in lista)
                                 {
                                     if (idcliente == p.IdCliente)
                                     {
+                                        encontrado = true;
                                         Console.WriteLine(p.ToString());
                                         
                                     }
-                                    else
-                                    {
-                                        Console.WriteLine("El cliente no tiene prestamos asociados");
-                                    }
+
 
                                 }
+
+                                if (!encontrado)
+                                {
+                                    Console.WriteLine("no se encontro el id cliente");
+                                }
+
                             }
                             //check si esto no es lo mismo que lo de arriba
                             if (opcionReporte.ToUpper() == "2")
