@@ -73,10 +73,10 @@ namespace EjercicioBiblioteca.InterfazConsola
                             string opcionCliente = Console.ReadLine();
                             if (opcionCliente.ToUpper() == "1")
                             {
-<<<<<<< HEAD
+
                                 AgregarCliente(biblioteca);
                                 clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
-=======
+
                                 
                                 clienteNegocio.Alta(Utilidades.InsertarInt("ingrese dni"),
                                     Utilidades.InsertarString("ingrese nombre"),
@@ -88,7 +88,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                                     DateTime.Now, true, Utilidades.InsertarString("inserte usuario"),
                                     Utilidades.InsertarInt("inserte id cliente")); ;
                                     
->>>>>>> 42029e4d6a96d4961f3405c96e91e1ce579a1185
+
                             }
 
                             if (opcionCliente.ToUpper() == "2")
@@ -291,7 +291,7 @@ namespace EjercicioBiblioteca.InterfazConsola
             try
             {
                 int idCliente = Utilidades.PedirNumeroNatural("Ingresar Id del Cliente:");
-                Cliente cliente = ClienteNegocio.ObtenerClientePorId();
+                Cliente cliente = clienteNegocio.ObtenerClientePorId(idCliente);
 
                 if (cliente == null)
                 {
