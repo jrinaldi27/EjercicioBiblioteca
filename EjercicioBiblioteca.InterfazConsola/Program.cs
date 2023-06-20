@@ -130,15 +130,23 @@ namespace EjercicioBiblioteca.InterfazConsola
                                     Utilidades.InsertarString("inserte tema"));
                             }
 
-                            //revisar
+                           //ver porque los codigos de los libros son todos cero
                             if (opcionLibro.ToUpper() == "2")
                             {
-                                int idLibro = Utilidades.InsertarInt("ingrese id libro");
+                                int idlibro = Utilidades.InsertarInt("ingrese id libro");
 
-                                List<Libro> l1 = libroNegocio.GetbyId(idLibro);
+                                List<Libro> l1 = libroNegocio.GetListaLibro();
                                 foreach (Libro l in l1)
                                 {
-                                    Console.WriteLine(l.ToString());
+                                    if (idlibro == l.IdLibro)
+                                    {
+                                        Console.WriteLine(l.ToString());
+                                        break;
+                                    } else
+                                    {
+                                        Console.WriteLine("No existe un libro con ese id");
+                                    }
+                                    
                                 }
 
 
@@ -204,15 +212,24 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 }
                             }
 
-                            //revisar
+                           
                             if (opcionPrestamo.ToUpper() == "3")
                             {
-                                int idLibro = Utilidades.InsertarInt("ingrese id libro");
+                                int idejemplar = Utilidades.InsertarInt("ingrese id ejemplar");
 
-                                List<Prestamo> lista = prestamoNegocio.TraerPorLibro(idLibro);
+                                List<Prestamo> lista = prestamoNegocio.GetListaPrestamo();
                                 foreach (Prestamo p in lista)
                                 {
-                                    Console.WriteLine(p.ToString());
+                                    if (idejemplar == p.IdEjemplar)
+                                    {
+                                        Console.WriteLine(p.ToString());
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("No existe un prestamo asociado a ese ejemplar");
+                                    }
+
                                 }
                             }
 
