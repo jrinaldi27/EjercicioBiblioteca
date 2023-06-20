@@ -41,6 +41,9 @@ namespace EjercicioBiblioteca
             if (!transaction.IsOk)
             {
                 throw new Exception(transaction.Error);
+            } else
+            {
+                Console.WriteLine("Libro Agregado");
             }
 
         }

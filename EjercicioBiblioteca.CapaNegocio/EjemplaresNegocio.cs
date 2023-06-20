@@ -43,6 +43,9 @@ namespace EjercicioBiblioteca.CapaNegocio
             if (!transaction.IsOk)
             {
                 throw new Exception(transaction.Error);
+            } else
+            {
+                Console.WriteLine("Ejemplar agregado");
             }
 
         }

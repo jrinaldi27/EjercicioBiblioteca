@@ -27,7 +27,7 @@ namespace EjercicioBiblioteca.InterfazConsola
 
         bool continuarActivo = true;
 
-            string menuPrincipal = "Presione una de las siguientes opciones\n1) Clientes \n2) Libros \n3) Prestamos " +
+            string menuPrincipal = "Presione una de las siguientes opciones\n1) Clientes \n2) Libros \n3) Prestamos  \n4) Reportes" +
                 
                 " \nX) Salir";
 
@@ -38,6 +38,8 @@ namespace EjercicioBiblioteca.InterfazConsola
 
             string menuPrestamos = ("1) Prestar libro \n 2) Listar Prestamos \n" +
                 "3) Consultar Prestamos por libro \n  ");
+
+            string menuReportes = ("1) Prestamos por cliente \n 2) Ejemplares por Libro \n");
 
             // pantalla de bienvenida
             Console.WriteLine("Bienvenido a Biblioteca");
@@ -77,7 +79,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 //AgregarCliente(biblioteca);
                                 //clienteNegocio.Alta(43253514, "Julian", "Rinaldi", "Jb 4427", "jr", "11234", Convert.ToDateTime("08-05-2001"), Convert.ToDateTime("09-06-2023"), true, "904251", 1);
 
-                                
+
                                 clienteNegocio.Alta(Utilidades.InsertarInt("ingrese dni"),
                                     Utilidades.InsertarString("ingrese nombre"),
                                     Utilidades.InsertarString("ingrese apellido"),
@@ -86,7 +88,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                                     Utilidades.InsertarString("ingrese telefono"),
                                     Utilidades.InsertarFecha("inserte fecha nacimiento"),
                                     DateTime.Now, true, Utilidades.InsertarString("inserte usuario"),
-                                    Utilidades.InsertarInt("inserte id cliente")); ;
+                                    Utilidades.InsertarInt("inserte id cliente"));
                                     
 
                             }
@@ -247,8 +249,59 @@ namespace EjercicioBiblioteca.InterfazConsola
                                     }
 
                                 }
+                            } else
+                            {
+                                break;
+                            }
+                            break;
+                        case "4":
+                            Console.WriteLine(menuReportes);
+                            string opcionReporte = Console.ReadLine();
+
+                            if (opcionReporte.ToUpper() == "1")
+                            {
+                                int idcliente = Utilidades.InsertarInt("ingrese id cliente");
+
+                                List<Prestamo> lista = prestamoNegocio.GetListaPrestamo();
+                                foreach (Prestamo p in lista)
+                                {
+                                    if (idcliente == p.IdCliente)
+                                    {
+                                        Console.WriteLine(p.ToString());
+                                        
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("El cliente no tiene prestamos asociados");
+                                    }
+
+                                }
+                            }
+                            //check si esto no es lo mismo que lo de arriba
+                            if (opcionReporte.ToUpper() == "2")
+                            {
+                                int idlibro = Utilidades.InsertarInt("ingrese id del libro");
+
+                                List<Ejemplar> lista = ejemplaresNegocio.GetListaEjemplares();
+                                foreach (Ejemplar e in lista)
+                                {
+                                    if (idlibro == e.IdLibro)
+                                    {
+                                        Console.WriteLine(e.ToString());
+
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("El cliente no tiene prestamos asociados");
+                                    }
+
+                                }
                             }
 
+                            else
+                            {
+                                break;
+                            }
 
                             break;
 
