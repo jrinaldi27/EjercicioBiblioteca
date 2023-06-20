@@ -81,8 +81,8 @@ namespace EjercicioBiblioteca
 
         public override string ToString()
         {
-            return (this.IdCliente + ") " + this.IdEjemplar + ", " + this.Plazo + ", " + this.Abierto + ", " + this.FechaPrestamo + ", " +
-                this.FechaDevolucionTentativa + ", " + this.FechaDevolucionReal + ", " + this.Id);
+            return ("Id Cliente: " + this.IdCliente + ", " + "Id Ejemplar: " + this.IdEjemplar + ", " + "Plazo: " + this.Plazo + ", " + "Abierto: " + this.Abierto + ", " + "Fecha de prestamo: " + this.FechaPrestamo + ", " +
+             "Fecha de devolucion tentativa: " +  this.FechaDevolucionTentativa + ", " + "Fecha de devolucion Real: " + this.FechaDevolucionReal + ", " + "Id prestamo: "  +this.Id+ ".");
         }
     }
 }
