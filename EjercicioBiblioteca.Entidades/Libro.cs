@@ -18,7 +18,7 @@ namespace EjercicioBiblioteca
         public string _tema;
         private List<Ejemplar> _ejemplares;
 
-        public int IdLibro
+        public int Id
         {
             get { return _id; }
             set { _id = value; }
@@ -75,7 +75,7 @@ namespace EjercicioBiblioteca
         public Libro(int idLibro, string titulo, string autor,
             string editorial, int paginas, int edicion, string tema)
         {
-            IdLibro = idLibro;
+            Id = idLibro;
             Titulo = titulo;
             Autor = autor;
             Editorial = editorial;
@@ -93,7 +93,7 @@ namespace EjercicioBiblioteca
 
         public override string ToString()
         {
-            return ("Id Libro: " + this.IdLibro + ", " + "Titulo: " + this.Titulo + ", " + "Tema: " + this.Tema + ", " + "Autor: " + this.Autor + ", " +"Editorial: " + this.Editorial + ", " +
+            return ("Id Libro: " + this.Id + ", " + "Titulo: " + this.Titulo + ", " + "Tema: " + this.Tema + ", " + "Autor: " + this.Autor + ", " +"Editorial: " + this.Editorial + ", " +
                 "Edición: " + this.Edicion + ", " + "Tema: " + this.Tema+ ".");
         }
 

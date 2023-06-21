@@ -61,7 +61,7 @@ namespace EjercicioBiblioteca
             n.Add("Autor", libro.Autor);
             n.Add("Editorial", libro.Editorial);
             n.Add("Tema", libro.Tema);
-            n.Add("Id", libro.IdLibro.ToString());
+            n.Add("Id", libro.Id.ToString());
 
             return n;
 

@@ -114,7 +114,7 @@ namespace EjercicioBiblioteca
 
             foreach (Libro libro in  this.Libros)
             {
-                if (libro.IdLibro == id)
+                if (libro.Id == id)
                 {
                     a = libro;
                 }
@@ -137,7 +137,7 @@ namespace EjercicioBiblioteca
         // Buscar el ejemplar en la lista de libros de la biblioteca
          foreach (Libro libro in Libros)
        {
-            if(idLibro == libro.IdLibro)
+            if(idLibro == libro.Id)
                 {
                     foreach (Ejemplar ejemplar in libro.Ejemplares)
                     {

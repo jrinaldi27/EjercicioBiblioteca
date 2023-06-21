@@ -134,7 +134,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                                 bool encontrado = false;
                                 foreach (Libro l in l1)
                                 {
-                                    if (idlibro == l.IdLibro)
+                                    if (idlibro == l.Id)
                                     {
                                         Console.WriteLine(l.ToString());
                                         encontrado = true;
