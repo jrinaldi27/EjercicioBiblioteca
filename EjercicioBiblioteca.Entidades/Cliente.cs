@@ -18,7 +18,7 @@ namespace EjercicioBiblioteca
         private int _dni;
         private string _telefono;
 
-        public int IdCliente
+        public int Id
         {
             get { return _idCliente; }
             set { _idCliente = value; }
@@ -81,7 +81,7 @@ namespace EjercicioBiblioteca
            ,DateTime fechaNacimiento, DateTime fechaAlta, bool activo, string usuario,int idCliente) :base(nombre,apellido,direccion)
         {
             Dni = dni;
-            IdCliente = idCliente;
+            Id = idCliente;
             Email = email;
             Telefono = telefono;
             FechaNacimiento = fechaNacimiento;
@@ -94,7 +94,7 @@ namespace EjercicioBiblioteca
 
         public override string ToString()
         {
-            return ( "Apellido: "+ this.Apellido + ", " + "Nombre: " + this.Nombre + ", " + "Email: " + this.Email + ", " + "Usuario: " + this.Usuario + ", " + "Id cliente: " + this.IdCliente);
+            return ( "Apellido: "+ this.Apellido + ", " + "Nombre: " + this.Nombre + ", " + "Email: " + this.Email + ", " + "Usuario: " + this.Usuario + ", " + "Id cliente: " + this.Id);
         }
 
     }

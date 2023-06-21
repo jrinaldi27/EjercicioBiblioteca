@@ -58,7 +58,7 @@ namespace EjercicioBiblioteca
 
             foreach (Cliente c in Clientes)
             {
-                if (c.IdCliente   == cliente.IdCliente)
+                if (c.Id   == cliente.Id)
                 {
                     existe = true;
                     break;
@@ -79,7 +79,7 @@ namespace EjercicioBiblioteca
 
             foreach (Cliente cliente in  this.Clientes)
             {
-                if (cliente.IdCliente == id)
+                if (cliente.Id == id)
                 {
                     a = cliente;
                 }
@@ -96,7 +96,7 @@ namespace EjercicioBiblioteca
         {
             foreach(Cliente c in this.Clientes)
             {
-                if(c.IdCliente==codigo)
+                if(c.Id==codigo)
                 {
                     this.Clientes.Remove(c);
                 }
@@ -157,7 +157,7 @@ namespace EjercicioBiblioteca
                             Cliente cliente = null;
                             foreach (Cliente c in Clientes)
                             {
-                                if (c.IdCliente == idCliente)
+                                if (c.Id == idCliente)
                                 {
                                     cliente = c;
                                     break;
@@ -177,7 +177,7 @@ namespace EjercicioBiblioteca
 
 
                             // Registrar el préstamo
-                            Prestamo prestamo = new Prestamo(cliente.IdCliente, ejemplar.Id, 2, DateTime.Now, DateTime.Now, DateTime.Now, 2 );
+                            Prestamo prestamo = new Prestamo(cliente.Id, ejemplar.Id, 2, DateTime.Now, DateTime.Now, DateTime.Now, 2 );
                           
 
                             // Actualizar estado del ejemplar

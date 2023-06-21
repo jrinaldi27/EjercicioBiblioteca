@@ -63,8 +63,7 @@ namespace EjercicioBiblioteca
             n.Add("Activo", cliente.Activo.ToString());
             n.Add("Usuario", cliente.Usuario);
             n.Add("Host", cliente.Host);
-
-            n.Add("IdCliente", cliente.IdCliente.ToString());
+            n.Add("Id", cliente.Id.ToString());
             
             
             return n;
