@@ -259,7 +259,7 @@ namespace EjercicioBiblioteca.InterfazConsola
                             if (opcionReporte.ToUpper() == "2")
                             {
 
-                                ReporteEjemplaresPorLibro(Utilidades.InsertarInt("ingrese id del libroa consultar"));
+                                ReporteEjemplaresPorLibro(Utilidades.InsertarInt("ingrese id del libro a consultar"));
                               
                             }
 

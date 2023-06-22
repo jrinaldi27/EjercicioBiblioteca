@@ -40,13 +40,13 @@ namespace EjercicioBiblioteca.InterfazConsola
                 Console.WriteLine(mensaje);
                 dato = Convert.ToInt32(Console.ReadLine());
 
-                if (dato < 0)
+                if (dato < 1)
                 {
-                    Console.WriteLine("el dato ingresado no puede ser negativo.Ingreselo nuevamente");
+                    Console.WriteLine("el dato ingresado no puede ser cero o negativo.Ingreselo nuevamente");
                 }
 
 
-            } while (dato < 0);
+            } while (dato < 1);
 
             return dato;
         }
