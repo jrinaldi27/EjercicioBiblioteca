@@ -125,7 +125,6 @@ namespace EjercicioBiblioteca.InterfazConsola
                                     Utilidades.InsertarString("inserte tema"));
                             }
 
-                           //ver porque los codigos de los libros son todos cero
                             if (opcionLibro.ToUpper() == "2")
                             {
                                 int idlibro = Utilidades.InsertarInt("ingrese id libro");
@@ -253,53 +252,15 @@ namespace EjercicioBiblioteca.InterfazConsola
 
                             if (opcionReporte.ToUpper() == "1")
                             {
-                                int idcliente = Utilidades.InsertarInt("ingrese id cliente");
 
-                                List<Prestamo> lista = prestamoNegocio.GetListaPrestamo();
-                                
-                                bool encontrado = false;
-                                foreach (Prestamo p in lista)
-                                {
-                                    if (idcliente == p.IdCliente)
-                                    {
-                                        encontrado = true;
-                                        Console.WriteLine(p.ToString());
-
-                                        
-                                    }
-
-
-                                }
-
-                                if (!encontrado)
-                                {
-                                    Console.WriteLine("No se encontraron prestamos asociados a ese id de cliente");
-                                }
-
+                                ReportePrestamosPorCliente(Utilidades.InsertarInt("Ingrese id del cliente a consultar"));
                             }
-                            //check si esto no es lo mismo que lo de arriba
+                         
                             if (opcionReporte.ToUpper() == "2")
                             {
-                                int idlibro = Utilidades.InsertarInt("ingrese id del libro");
 
-                                List<Ejemplar> lista = ejemplaresNegocio.GetListaEjemplares();
-                                bool encontrado = false;    
-                                foreach (Ejemplar e in lista)
-                                {
-                                    if (idlibro == e.IdLibro)
-                                    {
-                                        encontrado = true;
-                                        Console.WriteLine(e.ToString());
-
-                                    }
-                                    
-
-                                }
-
-                                if (!encontrado)
-                                {
-                                    Console.WriteLine("No se encontraron ejemplares asociados a ese idLibro");
-                                }
+                                ReporteEjemplaresPorLibro(Utilidades.InsertarInt("ingrese id del libroa consultar"));
+                              
                             }
 
                             else
@@ -333,7 +294,106 @@ namespace EjercicioBiblioteca.InterfazConsola
 
         }
 
-        
+        public static void ReporteEjemplaresPorLibro(int idLibro)
+        {
+            LibroNegocio libroNegocio = new LibroNegocio();
+
+
+            List<Libro> l1 = libroNegocio.GetListaLibro();
+            bool encontrado = false;
+            foreach (Libro l in l1)
+            {
+                if (idLibro == l.Id)
+                {
+                    Console.WriteLine(l.ToString());
+                    encontrado = true;
+                }
+
+            }
+
+            if (!encontrado)
+            {
+                Console.WriteLine("No existen libros con ese Id");
+            }
+
+            Console.WriteLine("Lista de ejemplares: ");
+
+            EjemplaresNegocio ejemplaresNegocio= new EjemplaresNegocio();
+
+            List<Ejemplar> lista = ejemplaresNegocio.GetListaEjemplares();
+            encontrado = false;
+            foreach (Ejemplar e in lista)
+            {
+                if (idLibro == e.IdLibro)
+                {
+                    encontrado = true;
+                    Console.WriteLine(e.Observaciones);
+
+                }
+
+
+            }
+
+            if (!encontrado)
+            {
+                Console.WriteLine("No se encontraron ejemplares asociados a ese idLibro");
+            }
+
+
+
+        }
+
+        public static void ReportePrestamosPorCliente(int idCliente)
+        {
+
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+
+
+            List<Cliente> clientes = clienteNegocio.GetListaCliente();
+            bool encontrado = false;
+            foreach (Cliente c in clientes)
+            {
+                if (idCliente == c.Id)
+                {
+                    Console.WriteLine(c.ToString());
+                    encontrado = true;
+                }
+
+            }
+
+            if (!encontrado)
+            {
+                Console.WriteLine("No existen clientes con ese Id");
+            }
+
+
+            Console.WriteLine("Lista de prestamos: ");
+
+            PrestamoNegocio prestamoNegocio = new PrestamoNegocio();
+
+            List<Prestamo> lista = prestamoNegocio.GetListaPrestamo();
+
+            encontrado = false;
+            foreach (Prestamo p in lista)
+            {
+                if (idCliente == p.IdCliente)
+                {
+                    encontrado = true;
+                    Console.WriteLine(p.ToString());
+
+                }
+
+            }
+
+            if (!encontrado)
+            {
+                Console.WriteLine("No se encontraron prestamos asociados a ese id de cliente");
+            }
+        }
+
+
     }
+
+   
 }
 

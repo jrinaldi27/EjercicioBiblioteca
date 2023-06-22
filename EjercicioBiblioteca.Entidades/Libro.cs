@@ -86,11 +86,6 @@ namespace EjercicioBiblioteca
         }
 
 
-        //public override string ToString()
-        //{
-          //  return string.Format("{0}-{1}-{2}-{3}-{4}-{5}-{6}-{7}", IdLibro, Titulo, Autor, FechaPublicacion, Editorial, Tema, Edicion, Paginas);
-        //}
-
         public override string ToString()
         {
             return ("Id Libro: " + this.Id + ", " + "Titulo: " + this.Titulo + ", " + "Tema: " + this.Tema + ", " + "Autor: " + this.Autor + ", " +"Editorial: " + this.Editorial + ", " +
