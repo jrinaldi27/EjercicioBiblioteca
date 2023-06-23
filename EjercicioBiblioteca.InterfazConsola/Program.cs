@@ -24,12 +24,12 @@ namespace EjercicioBiblioteca.InterfazConsola
                 
                 " \nX) Salir";
 
-            string menuClientes = ("Presione una de las siguientes opciones\n1) Agregar cliente \n 2) Consultar cliente \n 3) Listar clientes\n x) Salir ");
+            string menuClientes = ("Presione una de las siguientes opciones\n1) Agregar cliente \n2) Consultar cliente \n3) Listar clientes\nx) Salir ");
 
-            string menuLibros = ("Presione una de las siguientes opciones\n1) Agregar Libro \n 2) Consultar Libro \n 3) Listar libros \n " +
-                "4) Agregar ejemplar  \n 5) Traer Ejemplar por id \n 6) Listar Ejemplares \n");
+            string menuLibros = ("Presione una de las siguientes opciones\n1) Agregar Libro \n2) Consultar Libro \n3) Listar libros \n" +
+               "4) Agregar ejemplar \n5) Traer Ejemplar por id\n6) Listar Ejemplares \n");
 
-            string menuPrestamos = ("1) Prestar libro \n 2) Listar Prestamos \n" +
+            string menuPrestamos = ("1) Prestar libro \n2) Listar Prestamos \n" +
                 "3) Consultar Prestamos por libro \n  ");
 
             string menuReportes = ("1) Prestamos por cliente \n 2) Ejemplares por Libro \n");
