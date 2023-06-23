@@ -337,10 +337,11 @@ namespace EjercicioBiblioteca.InterfazConsola
                 }
 
             }
-            Console.WriteLine("Lista de ejemplares: ");
+            
             Console.WriteLine("Cantidad de ejemplares: " + encontrados.Count.ToString());
+            Console.WriteLine("Lista de ejemplares: ");
 
-            foreach(Ejemplar e in encontrados)
+            foreach (Ejemplar e in encontrados)
             {
                 Console.WriteLine("-" + e.Observaciones);
             }
@@ -378,11 +379,11 @@ namespace EjercicioBiblioteca.InterfazConsola
             }
 
 
-            Console.WriteLine("Lista de prestamos: ");
 
             PrestamoNegocio prestamoNegocio = new PrestamoNegocio();
 
             List<Prestamo> lista = prestamoNegocio.GetListaPrestamo();
+            List<Prestamo> encontrados = new List<Prestamo>();
 
             encontrado = false;
             foreach (Prestamo p in lista)
@@ -390,10 +391,18 @@ namespace EjercicioBiblioteca.InterfazConsola
                 if (idCliente == p.IdCliente)
                 {
                     encontrado = true;
-                    Console.WriteLine(p.ToString());
+                    encontrados.Add(p);
 
                 }
 
+            }
+
+            Console.WriteLine("Cantidad de prestamos: " + encontrados.Count.ToString());
+            Console.WriteLine("Lista de prestamos: ");
+
+            foreach (Prestamo p in encontrados)
+            {
+                Console.WriteLine("-" + p.ToString());
             }
 
             if (!encontrado)
