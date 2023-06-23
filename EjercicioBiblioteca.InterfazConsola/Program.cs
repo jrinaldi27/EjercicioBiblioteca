@@ -316,22 +316,33 @@ namespace EjercicioBiblioteca.InterfazConsola
                 Console.WriteLine("No existen libros con ese Id");
             }
 
-            Console.WriteLine("Lista de ejemplares: ");
+            
 
             EjemplaresNegocio ejemplaresNegocio= new EjemplaresNegocio();
 
             List<Ejemplar> lista = ejemplaresNegocio.GetListaEjemplares();
+            List<Ejemplar> encontrados = new List<Ejemplar>();
             encontrado = false;
+
+            
             foreach (Ejemplar e in lista)
             {
                 if (idLibro == e.IdLibro)
                 {
                     encontrado = true;
-                    Console.WriteLine(e.Observaciones);
+                    
+                    
+                    encontrados.Add(e);
 
                 }
 
+            }
+            Console.WriteLine("Lista de ejemplares: ");
+            Console.WriteLine("Cantidad de ejemplares: " + encontrados.Count.ToString());
 
+            foreach(Ejemplar e in encontrados)
+            {
+                Console.WriteLine("-" + e.Observaciones);
             }
 
             if (!encontrado)

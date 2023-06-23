@@ -58,7 +58,7 @@ namespace EjercicioBiblioteca
             n.Add("Direccion", cliente.Direccion);
             n.Add("email", cliente.Email);
             n.Add("Telefono", cliente.Telefono);
-            n.Add("Fecha nacimiento", cliente.FechaNacimiento.ToString("yyyy-MM-dd"));
+            n.Add("FechaNacimiento", cliente.FechaNacimiento.ToString("yyyy-MM-dd"));
             n.Add("Fecha Alta", cliente.FechaAlta.ToString("yyyy-MM-dd"));
             n.Add("Activo", cliente.Activo.ToString());
             n.Add("Usuario", cliente.Usuario);
